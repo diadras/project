@@ -4,6 +4,8 @@
 for ($i=0;$i<=11;$i++){
 	echo("hello ".$i."</br>");
 }
+
+echo("Piemel en kutjes");
 ?>
 </body>
 </html>
