@@ -13,12 +13,7 @@
     $array = mysqli_query($db,$query) or die("error");
 
     while ($row = mysqli_fetch_assoc($array)) {
-      echo ("<h3>Gebruiker ".$row["id"]."</h3>");
-      echo ("ID = ".$row["id"]."<p>");
-      echo ("Username = ".$row["username"]."<p>");
-      echo ("Password = ".$row["password"]."<p>");
-      echo ("Email = ".$row["email"]."<p>");
-      echo ("Level = ".$row["level"]."<p>");
+      echo ("<img src=");
     }
    ?>
 </body>
