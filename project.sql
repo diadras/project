@@ -34,11 +34,11 @@ CREATE TABLE IF NOT EXISTS `project`.`posts` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `photodata` TEXT NOT NULL,
   `recipe` TEXT NULL,
-  `gebruikers_id` INT NOT NULL,
+  `gebruiker_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_posts_gebruikers1_idx` (`gebruikers_id` ASC),
-  CONSTRAINT `fk_posts_gebruikers1`
-    FOREIGN KEY (`gebruikers_id`)
+  INDEX `fk_posts_gebruiker1_idx` (`gebruiker_id` ASC),
+  CONSTRAINT `fk_posts_gebruiker1`
+    FOREIGN KEY (`gebruiker_id`)
     REFERENCES `project`.`users` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
