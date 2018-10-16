@@ -31,7 +31,7 @@ ENGINE = InnoDB;
 -- Table `project`.`posts`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `project`.`posts` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `photodata` TEXT NOT NULL,
   `recipe` TEXT NULL,
   `gebruikers_id` INT NOT NULL,
@@ -49,7 +49,7 @@ ENGINE = InnoDB;
 -- Table `project`.`hashtags`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `project`.`hashtags` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `data` TEXT NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
@@ -59,7 +59,7 @@ ENGINE = InnoDB;
 -- Table `project`.`category`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `project`.`category` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
@@ -69,7 +69,7 @@ ENGINE = InnoDB;
 -- Table `project`.`message`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `project`.`message` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `data` TEXT NOT NULL,
   `users_id` INT NOT NULL,
   PRIMARY KEY (`id`),
@@ -86,7 +86,7 @@ ENGINE = InnoDB;
 -- Table `project`.`posts_has_hashtags`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `project`.`posts_has_hashtags` (
-  `posts_id` INT NOT NULL,
+  `posts_id` INT NOT NULL
   `hashtags_id` INT NOT NULL,
   PRIMARY KEY (`posts_id`, `hashtags_id`),
   INDEX `fk_posts_has_hashtags_hashtags1_idx` (`hashtags_id` ASC),
