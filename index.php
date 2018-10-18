@@ -14,6 +14,7 @@
 		$array = mysqli_query($db,$query) or die("error");
 
     while ($row = mysqli_fetch_assoc($array)) {
+			echo ("gebruiker: ".$row["gebruikers_id"]);
       echo ("<img src=\"".$row["photodata"]."\"/><p>");
 			echo ("Recept: ".$row["recipe"]."<p>");
 			//echo ("Gemaakt door gebruikers: ".$row["username"]."<p>");
@@ -24,8 +25,9 @@
 		$base64data = file_get_contents("./data/testuser/base64/image1");
 		// Wanneer ik de onderste query met backtics `` invoer krijg ik een kolomfout
 		// Als ik daarna deze vervang met enkele quotes '' gaat alles goed
-		$query2 = "INSERT INTO posts (photodata,recipe,gebruikers_id) VALUES ('./data/testuser/img/600x500.png','Nog geen recept','1');";
-		echo ($query2);
+		$query2 = " INSERT INTO posts (photodata,recipe,gebruikers_id) VALUES ('./data/testuser/img/600x500.png','Nog geen recept','1');
+		INSERT INTO users (username,password,email,level) VALUES ('testuser','testpass','test@gmail.com',1);
+		INSERT INTO users (username,password,email,level) VALUES ('barrie','badslipper','barrie@badslipper.nl',9001);";
 		//mysqli_query($db,$query2) or die("error");
 
 		mysqli_close($db);
