@@ -3,7 +3,7 @@
 $dbhost = "localhost";
 $dbuser = "root";
 $dbpass = "root";
-$dbname = "project";
+$dbname = "projecttest";
 $db = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 // Test of de verbinding werkt
 if (mysqli_connect_errno()) {
