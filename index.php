@@ -25,11 +25,11 @@
 		$base64data = file_get_contents("./data/testuser/base64/image1");
 		// Wanneer ik de onderste query met backtics `` invoer krijg ik een kolomfout
 		// Als ik daarna deze vervang met enkele quotes '' gaat alles goed
-		$query2 = " INSERT INTO posts (photodata,recipe,gebruikers_id) VALUES ('./data/testuser/img/600x500.png','Nog geen recept','1');
-		INSERT INTO users (username,password,email,level) VALUES ('testuser','testpass','test@gmail.com',1);
-		INSERT INTO users (username,password,email,level) VALUES ('barrie','badslipper','barrie@badslipper.nl',9001);";
+		$query2 = "INSERT INTO users (username,password,email,level) VALUES ('testuser','testpass','test@gmail.com',1);
+		INSERT INTO users (username,password,email,level) VALUES ('barrie','badslipper','barrie@badslipper.nl',9001);
+		INSERT INTO posts (photodata,recipe,gebruikers_id) VALUES ('./data/testuser/img/600x500.png','Nog geen recept','1');";
 		//mysqli_query($db,$query2) or die("error");
-
+		mysqli_query($db,$query2) or die (mysqli_error($db));
 		mysqli_close($db);
 	 ?>
 </body>
