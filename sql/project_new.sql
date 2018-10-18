@@ -44,6 +44,7 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `project`.`users` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(45) NOT NULL,
   `password` TEXT NOT NULL,
   `email` VARCHAR(45) NOT NULL,
   `level` INT(11) NOT NULL,
