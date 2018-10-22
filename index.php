@@ -30,6 +30,19 @@
 
 <!--
 ##############################################
+######## Functies om data te genereren #######
+##############################################
+Het is mogelijk om content te genereren met 3 functies
+	genuser() is voor het genereren van users, deze kan je een integer meegeven
+voor een aantal maar dat hoeft niet (default=5)
+	genposts() genereert posts voor elke bestaande user, deze kan je een integer
+meegeven voor een aantal post per user maar dat hoeft niet (default=2)
+	gencontent() genereert users (default=5) en posts per user (default=2) keer
+het aantal dat je meegeeft. dus bijv gencontent(2) = 10 users en 4 posts per user
+
+Alle 3 de functies geven output over wat ze hebben gegenereerd, het beste
+is dan ook om ze aan te roepen in een echo()
+##############################################
 ## Data die aan het database is toegevoegd: ##
 ##############################################
   users:
