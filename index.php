@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<?php
+		include "./core/functions.php";
+    include "./core/database.php";
+	?>
 	<link href="./style/style.css" rel="stylesheet" type="text/css" media="all"/>
 	<title>Insta-Food</title>
 </head>
 <body>
   <h3>Testdata</h3>
   <?php
-    include "./core/database.php";
+
 		$query = "SELECT p.id, p.photodata, p.recipe, u.id, u.username FROM posts p JOIN users u ON p.users_id = u.id ORDER BY p.id;";
 		$array = mysqli_query($db,$query) or die (mysqli_error($db));
 
@@ -17,6 +21,7 @@
 			// ucfirst() zorgt voor uppercase i.v.m. naam van user
 			echo ("Eigenaar: ".ucfirst($row["username"])."<p>");
     }
+		mysqli_close($db);
 	 ?>
 </body>
 </html>
@@ -27,7 +32,6 @@
 ##############################################
   users:
 INSERT INTO users (username,password,email,level) VALUES ('testuser','testpass','test@gmail.com',1),('barrie','badslipper','barrie@badslipper.nl',9001);
-INSERT INTO users (username,password,email,level) VALUES ;
 
   posts
 INSERT INTO posts (photodata,recipe,users_id) VALUES ('./data/testuser/img/600x500.png','Nog geen recept',1);
@@ -66,6 +70,7 @@ for ($i=0; $i < 25; $i++) {
 	echo ("post ".$z);
 }
 ############################
+
 for ($i=0;$i<25;$i++) {
 	$getal = rand(1,2);
 	if($getal==1){
@@ -78,6 +83,17 @@ for ($i=0;$i<25;$i++) {
 		$query3 = "INSERT INTO posts (photodata,recipe,users_id) VALUES ('./data/testuser/img/600x500.png','Recept nummer $z',6);";
 		mysqli_query($db,$query3) or die (mysqli_error($db));
 		echo ("bloep-");
+	}
+}
+#############################
+for ($i=0; $i < 25; $i++) {
+	$query2 = "SELECT * FROM users;";
+	$array2 = mysqli_query($db,$query2) or die (mysqli_error($db));
+	while ($row = mysqli_fetch_assoc($array2)) {
+		$z = rand(1,100);
+		$id = $row["id"];
+		$query3 = "INSERT INTO posts (photodata,recipe,users_id) VALUES ('./data/testuser/img/600x500.png','Recept nummer $z',$id);";
+		mysqli_query($db,$query3) or die (mysqli_error($db));
 	}
 }
 #############################

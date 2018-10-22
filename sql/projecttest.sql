@@ -8,19 +8,19 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- Schema mydb
 -- -----------------------------------------------------
 -- -----------------------------------------------------
--- Schema projecttest
+-- Schema project
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema projecttest
+-- Schema project
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `projecttest` DEFAULT CHARACTER SET utf8 ;
-USE `projecttest` ;
+CREATE SCHEMA IF NOT EXISTS `project` DEFAULT CHARACTER SET utf8 ;
+USE `project` ;
 
 -- -----------------------------------------------------
--- Table `projecttest`.`categories`
+-- Table `project`.`categories`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `projecttest`.`categories` (
+CREATE TABLE IF NOT EXISTS `project`.`categories` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
@@ -29,9 +29,9 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `projecttest`.`hashtags`
+-- Table `project`.`hashtags`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `projecttest`.`hashtags` (
+CREATE TABLE IF NOT EXISTS `project`.`hashtags` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `data` TEXT NOT NULL,
   PRIMARY KEY (`id`))
@@ -40,9 +40,9 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `projecttest`.`users`
+-- Table `project`.`users`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `projecttest`.`users` (
+CREATE TABLE IF NOT EXISTS `project`.`users` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(45) NOT NULL,
   `password` TEXT NOT NULL,
@@ -55,16 +55,16 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `projecttest`.`messages`
+-- Table `project`.`messages`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `projecttest`.`messages` (
+CREATE TABLE IF NOT EXISTS `project`.`messages` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `data` TEXT NOT NULL,
   `users_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_messages_users1`
     FOREIGN KEY (`users_id`)
-    REFERENCES `projecttest`.`users` (`id`)
+    REFERENCES `project`.`users` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -72,9 +72,9 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `projecttest`.`posts`
+-- Table `project`.`posts`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `projecttest`.`posts` (
+CREATE TABLE IF NOT EXISTS `project`.`posts` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `photodata` TEXT NOT NULL,
   `recipe` TEXT NULL DEFAULT NULL,
@@ -82,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `projecttest`.`posts` (
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_posts_users1`
     FOREIGN KEY (`users_id`)
-    REFERENCES `projecttest`.`users` (`id`)
+    REFERENCES `project`.`users` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -91,20 +91,20 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `projecttest`.`posts_has_categories`
+-- Table `project`.`posts_has_categories`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `projecttest`.`posts_has_categories` (
+CREATE TABLE IF NOT EXISTS `project`.`posts_has_categories` (
   `posts_id` INT(11) NOT NULL,
   `categories_id` INT(11) NOT NULL,
   PRIMARY KEY (`posts_id`, `categories_id`),
   CONSTRAINT `fk_posts_has_categories_categories1`
     FOREIGN KEY (`categories_id`)
-    REFERENCES `projecttest`.`categories` (`id`)
+    REFERENCES `project`.`categories` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_posts_has_categories_posts1`
     FOREIGN KEY (`posts_id`)
-    REFERENCES `projecttest`.`posts` (`id`)
+    REFERENCES `project`.`posts` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -112,20 +112,20 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `projecttest`.`posts_has_hashtags`
+-- Table `project`.`posts_has_hashtags`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `projecttest`.`posts_has_hashtags` (
+CREATE TABLE IF NOT EXISTS `project`.`posts_has_hashtags` (
   `posts_id` INT(11) NOT NULL,
   `hashtags_id` INT(11) NOT NULL,
   PRIMARY KEY (`posts_id`, `hashtags_id`),
   CONSTRAINT `fk_posts_has_hashtags_hashtags1`
     FOREIGN KEY (`hashtags_id`)
-    REFERENCES `projecttest`.`hashtags` (`id`)
+    REFERENCES `project`.`hashtags` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_posts_has_hashtags_posts1`
     FOREIGN KEY (`posts_id`)
-    REFERENCES `projecttest`.`posts` (`id`)
+    REFERENCES `project`.`posts` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
