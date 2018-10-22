@@ -1,5 +1,5 @@
 <?php
-include "database.php";
+
 function randstring($length = 10) {
   $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
   $charactersLength = strlen($characters);
@@ -10,6 +10,7 @@ function randstring($length = 10) {
   return $randomString;
 }
 function genusers($amount = 5) {
+  include "database.php";
   for ($i=0; $i < $amount; $i++) {
     $username = randstring(5);
     $password = randstring(5);
@@ -19,9 +20,9 @@ function genusers($amount = 5) {
   }
 }
 function genposts($amount = 2) {
+  include "database.php";
   for ($i=0; $i < $amount; $i++) {
-    $query2 = "SELECT * FROM users;";
-    $array2 = mysqli_query($db,$query2) or die (mysqli_error($db));
+    $array2 = mysqli_query($db,"SELECT * FROM users;") or die (mysqli_error($db));
     while ($row = mysqli_fetch_assoc($array2)) {
       $z = rand(1,100);
       $id = $row["id"];
