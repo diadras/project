@@ -23,6 +23,7 @@
 			echo ("Eigenaar: ".ucfirst($row["username"])."<p>");
 			echo ("</div>");
     }
+		
 		mysqli_close($db);
 	 ?>
 </body>
