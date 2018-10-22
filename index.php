@@ -23,7 +23,6 @@
 			echo ("Eigenaar: ".ucfirst($row["username"])."<p>");
 			echo ("</div>");
     }
-		
 		mysqli_close($db);
 	 ?>
 </body>
@@ -62,42 +61,4 @@ while ($row = mysqli_fetch_assoc($array)) {
   echo ("Email = ".$row["email"]."<p>");
   echo ("Level = ".$row["level"]."<p>");
 }
-##############################################
-######PHP voor genereren random posts#########
-##############################################
-############################
-for ($i=0; $i < 25; $i++) {
-	$z = $i * 5;
-	$query2 = "INSERT INTO posts (photodata,recipe,users_id) VALUES ('./data/testuser/img/600x500.png','Recept nummer $z',3);";
-	mysqli_query($db,$query2) or die (mysqli_error($db));
-	echo ("post ".$z);
-}
-############################
-
-for ($i=0;$i<25;$i++) {
-	$getal = rand(1,2);
-	if($getal==1){
-		$z=rand(1,100);
-		$query2 = "INSERT INTO posts (photodata,recipe,users_id) VALUES ('./data/testuser/img/600x500.png','Recept nummer $z',5);";
-		mysqli_query($db,$query2) or die (mysqli_error($db));
-		echo ("bliep-");
-	} else {
-		$z=rand(1,100);
-		$query3 = "INSERT INTO posts (photodata,recipe,users_id) VALUES ('./data/testuser/img/600x500.png','Recept nummer $z',6);";
-		mysqli_query($db,$query3) or die (mysqli_error($db));
-		echo ("bloep-");
-	}
-}
-#############################
-for ($i=0; $i < 25; $i++) {
-	$query2 = "SELECT * FROM users;";
-	$array2 = mysqli_query($db,$query2) or die (mysqli_error($db));
-	while ($row = mysqli_fetch_assoc($array2)) {
-		$z = rand(1,100);
-		$id = $row["id"];
-		$query3 = "INSERT INTO posts (photodata,recipe,users_id) VALUES ('./data/testuser/img/600x500.png','Recept nummer $z',$id);";
-		mysqli_query($db,$query3) or die (mysqli_error($db));
-	}
-}
-#############################
 -->
