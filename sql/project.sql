@@ -2,8 +2,11 @@
 
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALid_DATES';
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
 -- -----------------------------------------------------
 -- Schema project
 -- -----------------------------------------------------
@@ -15,118 +18,120 @@ CREATE SCHEMA IF NOT EXISTS `project` DEFAULT CHARACTER SET utf8 ;
 USE `project` ;
 
 -- -----------------------------------------------------
--- Table `project`.`users`
+-- Table `project`.`categories`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `project`.`users` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `username` VARCHAR(45) NOT NULL,
-  `password` TEXT NOT NULL,
-  `email` VARCHAR(45) NOT NULL,
-  `level` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `project`.`categories` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `project`.`posts`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `project`.`posts` (
-  `id` INT NOT NULL,
-  `photodata` TEXT NOT NULL,
-  `recipe` TEXT NULL,
-  `gebruikers_id` INT NOT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_posts_gebruikers1_idx` (`gebruikers_id` ASC),
-  CONSTRAINT `fk_posts_gebruikers1`
-    FOREIGN KEY (`gebruikers_id`)
-    REFERENCES `project`.`users` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
 -- Table `project`.`hashtags`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `project`.`hashtags` (
-  `id` INT NOT NULL,
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
   `data` TEXT NOT NULL,
   PRIMARY KEY (`id`))
-ENGINE = InnoDB;
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `project`.`category`
+-- Table `project`.`users`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `project`.`category` (
-  `id` INT NOT NULL,
-  `name` VARCHAR(45) NOT NULL,
+CREATE TABLE IF NOT EXISTS `project`.`users` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(45) NOT NULL,
+  `password` TEXT NOT NULL,
+  `email` VARCHAR(45) NOT NULL,
+  `level` INT(11) NOT NULL,
   PRIMARY KEY (`id`))
-ENGINE = InnoDB;
+ENGINE = InnoDB
+AUTO_INCREMENT = 3
+DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `project`.`message`
+-- Table `project`.`messages`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `project`.`message` (
-  `id` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `project`.`messages` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
   `data` TEXT NOT NULL,
-  `users_id` INT NOT NULL,
+  `users_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_message_users1_idx` (`users_id` ASC),
-  CONSTRAINT `fk_message_users1`
+  CONSTRAINT `fk_messages_users1`
     FOREIGN KEY (`users_id`)
     REFERENCES `project`.`users` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `project`.`posts`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `project`.`posts` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `photodata` TEXT NOT NULL,
+  `recipe` TEXT NULL DEFAULT NULL,
+  `users_id` INT(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `fk_posts_users1`
+    FOREIGN KEY (`users_id`)
+    REFERENCES `project`.`users` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+AUTO_INCREMENT = 102
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `project`.`posts_has_categories`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `project`.`posts_has_categories` (
+  `posts_id` INT(11) NOT NULL,
+  `categories_id` INT(11) NOT NULL,
+  PRIMARY KEY (`posts_id`, `categories_id`),
+  CONSTRAINT `fk_posts_has_categories_categories1`
+    FOREIGN KEY (`categories_id`)
+    REFERENCES `project`.`categories` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_posts_has_categories_posts1`
+    FOREIGN KEY (`posts_id`)
+    REFERENCES `project`.`posts` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
 -- Table `project`.`posts_has_hashtags`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `project`.`posts_has_hashtags` (
-  `posts_id` INT NOT NULL,
-  `hashtags_id` INT NOT NULL,
+  `posts_id` INT(11) NOT NULL,
+  `hashtags_id` INT(11) NOT NULL,
   PRIMARY KEY (`posts_id`, `hashtags_id`),
-  INDEX `fk_posts_has_hashtags_hashtags1_idx` (`hashtags_id` ASC),
-  INDEX `fk_posts_has_hashtags_posts1_idx` (`posts_id` ASC),
-  CONSTRAINT `fk_posts_has_hashtags_posts1`
-    FOREIGN KEY (`posts_id`)
-    REFERENCES `project`.`posts` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
   CONSTRAINT `fk_posts_has_hashtags_hashtags1`
     FOREIGN KEY (`hashtags_id`)
     REFERENCES `project`.`hashtags` (`id`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `project`.`posts_has_category`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `project`.`posts_has_category` (
-  `posts_id` INT NOT NULL,
-  `category_id` INT NOT NULL,
-  PRIMARY KEY (`posts_id`, `category_id`),
-  INDEX `fk_posts_has_category_category1_idx` (`category_id` ASC),
-  INDEX `fk_posts_has_category_posts1_idx` (`posts_id` ASC),
-  CONSTRAINT `fk_posts_has_category_posts1`
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_posts_has_hashtags_posts1`
     FOREIGN KEY (`posts_id`)
     REFERENCES `project`.`posts` (`id`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_posts_has_category_category1`
-    FOREIGN KEY (`category_id`)
-    REFERENCES `project`.`category` (`id`)
-    ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
---
