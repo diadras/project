@@ -13,19 +13,22 @@
 	<title>Insta-Food</title>
 </head>
 <body>
-  
+
   <h3>Account informatie aanpassen</h3>
   <form action="accountaanpassen.php" method="post">
-  	Gebruikersnaam: <input type="text" name="gebruikersnaam"><br>
-  	Wachtwoord: <input type="text" name="wachtwoord"><br>
-  	E-mailadres: <input type="text" name="email"><br>
-    <input type="submit" name="submit" value="Gegevens wijzigen"><br>
+    <table>
+  	<tr><td>Gebruikersnaam:</td><td> <input type="text" name="gebruikersnaam"></td></tr><br>
+  	<tr><td>Wachtwoord:</td><td> <input type="text" name="wachtwoord"></td></tr><br>
+  	<tr><td>E-mailadres:</td><td> <input type="text" name="email"></td></tr><br>
+  </table>
+  <input type="submit" name="submit" value="Gegevens wijzigen"><br>
   </form>
 
 
   <?php
  
   if (isset($_POST["submit"])){
+    $error_msg ="";
     $username = $_POST["gebruikersnaam"];
     $password = $_POST["wachtwoord"];
     $email = $_POST["email"];
