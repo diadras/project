@@ -13,3 +13,18 @@ body {
 	margin-right: auto;
 	padding: 5px;
 }
+
+/*Tekst vakken formulieren*/
+input [type=text] {
+
+}
+
+/*Password vakken formulieren*/
+input [type=password]{
+	
+}
+
+/*Submit buttons formulieren*/
+input [type=submit]{
+
+}
