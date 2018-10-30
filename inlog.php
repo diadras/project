@@ -48,25 +48,33 @@
         </form>
         </div>
         <?php 
+            //check of er iets is ingevuld
             if (isset($_POST["logindata"])){
-                if ($_POST["username"] == ""){
+                if (empty($_POST["username"])){
                     echo("<h1>Please enter username");
                 }
-                if ($_POST["password"] == ""){
+                if (empty($_POST["password"])){
                     echo("<h1>Please enter password");
                 } 
             }
+            //check of een row te vinden is die zowel de username als password heeft
             if (isset($_POST["logindata"])){
                 $username = $_POST["username"];
                 $password = $_POST["password"];
 
-                $query ="SELECT 'username','password' FROM users WHERE username = '$username' AND 'password' = '$password'"
-                $array = mysqli_query($db,$query) or die (mysqli_error($db));
-                if()
-                 
+                $query = "SELECT `username`,`password` FROM `users` WHERE `username` = '$username' AND `password` = '$password'";
+                $result = mysqli_query($db,$query);
+                
+                
+                if(mysqli_num_rows($result) == 1){
+                    header('Location: '. "instafood.php");
+                }  
+                else{
+                    echo("<h1>Incorect password or username");
+                }
             }
-
-
+            
+            
         ?>
     </body>
 </html>
