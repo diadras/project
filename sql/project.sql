@@ -77,6 +77,7 @@ DEFAULT CHARACTER SET = utf8;
 CREATE TABLE IF NOT EXISTS `project`.`posts` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `photodata` TEXT NOT NULL,
+  `title` TEXT NOT NULL,
   `recipe` TEXT NULL DEFAULT NULL,
   `users_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`),
