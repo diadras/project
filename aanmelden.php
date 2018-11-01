@@ -1,31 +1,31 @@
 <html>
-<fieldset>
+<div align="center">
+<fieldset style="width: 0px">
 
-<title>Registreren van klanten</title>
-<h3> Registreren</h3>
+
+<title>Register</title>
+<h1>Create an account:</h1>
 
 <table>
-    <form method="post" action="./aanmelden.php">
-        <tr><td>Gebruikersnaam:</td><td><input name="username" type="text"</td></tr>
-        <tr><td>Wachtwoord:</td><td><input name="password" type="password"</td></tr>
-        <tr><td>E-mailadress:</td><td><input name="email" type="text"</td></tr>
-</table>
+    <form method="post" action="ProjectAanmelden.php">
+        <tr><td><h3>Username: </h3></td><td><input name="username" type="text"</td></tr>
+        <tr><td><h3>Password: </h3></td><td><input name="password" type="password"</td></tr>
+        <tr><td><h3>E-mail: </h3></td><td><input name="email" type="text"</td></tr>
+</table>  
 
-<input type="submit" name="submit" value="registreren">
-<input type="reset" name="reset" value="leegmaken">
+<input type="submit" name="submit" value="Create Account">
+<input type="reset" name="reset" value="Clear">
 
-</form>
-</fieldset>
-</html>
-
-<?php
-include './core/database.php';
+<?php 
+include 'DBCon.php';
 
 if (isset($_POST['submit'])){
         $error_msg ="";
-        $username = mysqli_real_escape_string($db, $_POST['username']);
-        $password = mysqli_real_escape_string($db, $_POST['password']);
-        $email = mysqli_real_escape_string($db, $_POST['email']);
+        $username = mysqli_real_escape_string($conn, $_POST['username']);
+        $password = mysqli_real_escape_string($conn, $_POST['password']);
+        $email = mysqli_real_escape_string($conn, $_POST['email']);
+
+echo "<br /> <br />";
 
 //Is er een gebruikersnaam ingevuld
     if(strlen($username)<2){
@@ -41,8 +41,7 @@ if (isset($_POST['submit'])){
     }
 //Bestaat de gebruikersnaam al?
     $query = "SELECT * FROM users WHERE username = '$username'";
-
-    $result = mysqli_query($db, $query) or die ("FOUT: " . mysqli_error());
+    $result = mysqli_query($conn, $query) or die ("FOUT: " . mysqli_error());
     if(mysqli_num_rows($result) > 0){
         $error_msg.="<li class=\"formerror\">De gebruikersnaam is al in gebruik. </li>";
     }
@@ -53,8 +52,14 @@ if (isset($_POST['submit'])){
     else {
             $query = "INSERT INTO users (username, password, email, level) VALUES('$username','$password','$email', '0')";
 
-            mysqli_query($db, $query) or die("Error!" . mysqli_error($db));
-            header('Location: '. "index.php");
+            mysqli_query($conn, $query) or die("Error!" . mysqli_error($conn));
+            header('Location: '. "instafood.php");
         }
 }
 ?>
+
+
+</form>
+</fieldset>
+</div>
+</html>
