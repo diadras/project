@@ -6,75 +6,56 @@
             include "./core/database.php";
 	    ?>
         <title> Instafood </title>
-        <link/>
-        <style>
-            div{
-                text-align: center;
-                border: solid black 3px;
-                display: block;
-                background-color: green;
-                width: 500px;
-                margin: 10px;
-	            margin-left: auto;
-	            margin-right: auto;
-	            padding: 5px;
-            }
-            div.error{
-                text-align: center;
-            }
-            img{
-                width: 500px;
-                height: 500px;
-            }
-            p{
-                font-family: "Times New Roman", Times, serif;   
-                font-size: 18px;
-            }
-            h1{
-                text-align: center;
-                color: red;
-            }
-
-        </style>
+        <link href="./style/style.css" rel="stylesheet" type="text/css" media="all"/>
     </head>
-    
-    <body>
-        <div>
-        <img src="./img/profile.png" />
-        <form method="POST">
-            <p>Username: <input type="text" name="username">
-            <p>Password: <input type="password"  name="password"> 
-            <p><input type="submit" value="Submit" name="logindata">
-        </form>
-        </div>
-        <?php 
-            //check of er iets is ingevuld
+         <?php 
+            $nameErr = $passErr = $wrongErr = "";
+            
             if (isset($_POST["logindata"])){
+                //check of er een wachtwoord of username is ingevuld
                 if (empty($_POST["username"])){
-                    echo("<h1>Please enter username");
+                    $nameErr = "Please enter username";
                 }
                 if (empty($_POST["password"])){
-                    echo("<h1>Please enter password");
-                } 
-            }
-            //check of een row te vinden is die zowel de username als password heeft
-            if (isset($_POST["logindata"])){
+                    $passErr = "Please enter password";
+                }
+                //check of een row te vinden is die zowel de username als password heeft
                 $username = $_POST["username"];
                 $password = $_POST["password"];
 
                 $query = "SELECT `username`,`password` FROM `users` WHERE `username` = '$username' AND `password` = '$password'";
                 $result = mysqli_query($db,$query);
                 
-                
+                //als er een result is dan wordt je door gestuurt naar de hoofdpagina waar je dan ingelogd bent
                 if(mysqli_num_rows($result) == 1){
+                    $userinfo = array('username' => "$username", 'password' => "$password");
+                    session_start();
+                    $_SESSION['logged'] = $userinfo;
+                    session_unset();
+                    
                     header('Location: '. "instafood.php");
-                }  
-                else{
-                    echo("<h1>Incorect password or username");
+                }
+                elseif(!empty($_POST["username"])){
+                    if(!empty($_POST["password"])){
+                        $wrongErr = "Wrong password or username";
+                    }
                 }
             }
             
             
         ?>
+    <body>
+        <div class="inlog">
+        <img src="./img/profile.png" weidth="500" height="500"/>
+        <form method="POST">
+            <p>Username: <input type="text" name="username"><br>
+            <p>Password: <input type="password"  name="password"><br>
+            <p><input type="submit" value="Login" name="logindata">
+            <a href="aanmelden.php">register here</a></p>
+            <span class="error"><?php echo $wrongErr;?></span><br>
+            <span class="error"><?php echo $nameErr;?></span><br>
+            <span class="error"><?php echo $passErr;?></span>
+        </form>
+        </div>
     </body>
 </html>

@@ -9,8 +9,16 @@
 	<title>Insta-Food</title>
 </head>
 <body>
-  <h3>Testdata</h3>
-  <?php
+	<div class = "header">
+		<a href = "./index.php">
+			<img src="./img/Logo.jpeg" style="width: 260px; height: 150px" title="Instafood"/>
+		</a>
+		<div class="loginbutton">
+			<a href="./inlog.php" style="color: white;"> login </a>
+		</div>
+	</div>
+	<h3>Testdata</h3>
+	<?php
 		$query = "SELECT p.id, p.photodata, p.recipe, u.id, u.username FROM posts p JOIN users u ON p.users_id = u.id ORDER BY p.id;";
 		$array = mysqli_query($db,$query) or die (mysqli_error($db));
 

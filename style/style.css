@@ -2,6 +2,23 @@ body {
 	background: black;
 	color: white;
 }
+.header{
+	display: block;
+	border-style: solid;
+	border-color: white;
+	margin: 0px;
+	width: auto;
+	height: 150px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 5px;
+	color: black;
+	background-color: black;
+}
+.loginbutton{
+	float: right;
+	padding: 20px;
+}
 .post {
 	border: solid white 2px;
 	/* display: block; laat het object los van HTML voor herpositioneren in CSS */
@@ -13,5 +30,22 @@ body {
 	margin-right: auto;
 	padding: 5px;
 }
-
-
+.inlog {
+	text-align: center;
+	color: black;
+	border: solid #122152 5px;
+	display: block;
+	background-color: rgb(75, 207, 224);
+	width: 500px;
+	margin: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 5px;
+}
+.error {
+	color: #FF0000;
+}
+p {
+	font-family: "Times New Roman", Times, serif;   
+	font-size: 18px;
+}
