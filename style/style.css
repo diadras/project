@@ -30,6 +30,30 @@ body {
 	margin-right: auto;
 	padding: 5px;
 }
+.upload {
+	text-align: center;
+	color: black;
+	border: solid #122152 5px;
+	display: block;
+	background-color: rgb(75, 207, 224);
+	width: 500px;
+	margin: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0px;
+}
+.aanmelden{
+	text-align: center;
+	color: black;
+	border: solid #122152 5px;
+	display: block;
+	background-color: magenta;
+	width: 500px;
+	margin: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 5px
+}
 .inlog {
 	text-align: center;
 	color: black;
