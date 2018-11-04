@@ -48,4 +48,11 @@ function gencontent($amount = 1) {
   }
   return $result;
 }
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  $data = str_replace("'","",$data); // houdt sql injecties tegen
+  return $data;
+}
 ?>

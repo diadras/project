@@ -4,10 +4,16 @@
         <?php
 		    include "./core/functions.php";
             include "./core/database.php";
-	    ?>
+        ?>
         <title> Instafood </title>
         <link href="./style/style.css" rel="stylesheet" type="text/css" media="all"/>
     </head>
+    <body>
+        <div class = "header">
+            <a href = "./index.php">
+		        <img src="./img/Logo.jpeg" style="width: 260px; height: 150px" title="Instafood"/>
+            </a>
+        </div>
          <?php 
             $nameErr = $passErr = $wrongErr = "";
             
@@ -20,18 +26,17 @@
                     $passErr = "Please enter password";
                 }
                 //check of een row te vinden is die zowel de username als password heeft
-                $username = $_POST["username"];
-                $password = $_POST["password"];
+                $username = test_input($_POST["username"]);
+                $password = test_input($_POST["password"]);
 
                 $query = "SELECT `username`,`password` FROM `users` WHERE `username` = '$username' AND `password` = '$password'";
                 $result = mysqli_query($db,$query);
                 
                 //als er een result is dan wordt je door gestuurt naar de hoofdpagina waar je dan ingelogd bent
                 if(mysqli_num_rows($result) == 1){
-                    $userinfo = array('username' => "$username", 'password' => "$password");
-                    session_start();
+                    session_start($_SESSION['logged']);
+                    $userinfo = $username;
                     $_SESSION['logged'] = $userinfo;
-                    session_unset();
                     
                     header('Location: '. "instafood.php");
                 }
@@ -44,7 +49,7 @@
             
             
         ?>
-    <body>
+    
         <div class="inlog">
         <img src="./img/profile.png" weidth="500" height="500"/>
         <form method="POST">

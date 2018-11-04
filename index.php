@@ -13,8 +13,15 @@
 		<a href = "./index.php">
 			<img src="./img/Logo.jpeg" style="width: 260px; height: 150px" title="Instafood"/>
 		</a>
-		<div class="loginbutton">
-			<a href="./inlog.php" style="color: white;"> login </a>
+		<div class="buttons">
+			<form method="POST">
+			  <button name="login"style="color: black;"> login </button>
+      </form>
+      <?php
+        if(isset($_POST['login'])){
+          header("location: "."inlog.php");
+        }
+      ?> 
 		</div>
 	</div>
 	<h3>Testdata</h3>

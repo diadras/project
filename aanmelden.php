@@ -5,7 +5,21 @@
     <title>Register</title>
 </head>
 <body>
-
+    <div class = "header">
+		<a href = "./index.php">
+			<img src="./img/Logo.jpeg" style="width: 260px; height: 150px" title="Instafood"/>
+		</a>
+		<div class="buttons">
+			<form method="POST">
+			  <button name="login"style="color: black;"> login </button>
+      </form>
+      <?php
+        if(isset($_POST['login'])){
+          header("location: "."inlog.php");
+        }
+      ?> 
+		</div>
+	</div>
 <fieldset class="aanmelden" style="width: 0px;">
 <h1>Create an account:</h1>
 
@@ -61,6 +75,11 @@ echo "<br /> <br />";
             $query = "INSERT INTO users (username, password, email, level) VALUES('$username','$password','$email', '0')";
 
             mysqli_query($conn, $query) or die("Error!" . mysqli_error($conn));
+            
+            // maakt gelijk een sessie aan zodat je ingelogd bent
+            session_start();
+            $userinfo = $username;
+            $_SESSION['logged'] = $userinfo;
             header('Location: '. "instafood.php");
         }
 }

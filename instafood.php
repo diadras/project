@@ -9,10 +9,19 @@
     <title>Insta-Food</title>
  </head>
  <body>
-    <div class="header">
+    <div class = "header">
         <a href = "./instafood.php">
 		    <img src="./img/Logo.jpeg" style="width: 260px; height: 150px" title="Instafood"/>
         </a>
+        
+            <div class="buttons">    
+                <form method="POST">
+                    <button name="post"style="color: black;"> post </button>
+                    <br><br>
+                    <button name="logout"style="color: black;"> logout </button>
+                </form>    
+            </div>
+        </form> 
     </div>
     <h3>Testdata</h3>
       <?php
@@ -28,7 +37,15 @@
 		    echo ("</div>");
 	    }
 		
-	    mysqli_close($db);
-	  ?>
+        mysqli_close($db);
+        //cheack of de logout of post buttons zijn ingedrukt
+        if(isset($_POST['post'])){
+            header("location: "."post.php");
+        }
+        if(isset($_POST['logout'])){
+            //session_destroy();
+            header("location: "."index.php");
+        }
+      ?>
     </body>
 </html>

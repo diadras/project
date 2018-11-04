@@ -15,9 +15,10 @@ body {
 	color: black;
 	background-color: black;
 }
-.loginbutton{
+.buttons{
 	float: right;
 	padding: 20px;
+	color: black;
 }
 .post {
 	border: solid white 2px;
