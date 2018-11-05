@@ -4,6 +4,7 @@
    <?php
       include "./core/functions.php";
       include "./core/database.php";
+      include "./core/loggedin.php";
     ?>
     <link href="./style/style.css" rel="stylesheet" type="text/css" media="all"/>
     <title>Insta-Food</title>
@@ -12,16 +13,14 @@
     <div class = "header">
         <a href = "./instafood.php">
 		    <img src="./img/Logo.jpeg" style="width: 260px; height: 150px" title="Instafood"/>
-        </a>
-        
-            <div class="buttons">    
-                <form method="POST">
-                    <button name="post"style="color: black;"> post </button>
-                    <br><br>
-                    <button name="logout"style="color: black;"> logout </button>
-                </form>    
-            </div>
-        </form> 
+        </a>    
+        <div class="buttons">    
+            <form method="POST">
+                <button name="post"style="color: black;"> post </button>
+                <br><br>
+                <button name="logout"style="color: black;"> logout </button>
+            </form>    
+        </div> 
     </div>
     <h3>Testdata</h3>
       <?php
@@ -43,8 +42,7 @@
             header("location: "."post.php");
         }
         if(isset($_POST['logout'])){
-            //session_destroy();
-            header("location: "."index.php");
+            header("location: "."./logout.php");
         }
       ?>
     </body>

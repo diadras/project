@@ -2,9 +2,10 @@
 <html>
 <head>
 	<?php
-	include "./core/functions.php";
+	  include "./core/functions.php";
     include "./core/database.php";
-	error_reporting(-1);
+    include "./core/loggedin.php";
+	  error_reporting(-1);
   	ini_set('display_errors', 'On');
 
 

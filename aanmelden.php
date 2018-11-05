@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <?php
+        include './core/database.php';
+        include './core/functions.php';
+        include './core/loggedin.php';
+    ?>
     <link href="./style/style.css" rel="stylesheet" type="text/css" media="all"/>
     <title>Register</title>
 </head>
@@ -34,7 +39,6 @@
 <input type="reset" name="reset" value="Clear">
 
 <?php 
-include './core/database.php';
 
 if (isset($_POST['submit'])){
         $error_msg ="";

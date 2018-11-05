@@ -34,7 +34,7 @@
                 
                 //als er een result is dan wordt je door gestuurt naar de hoofdpagina waar je dan ingelogd bent
                 if(mysqli_num_rows($result) == 1){
-                    session_start($_SESSION['logged']);
+                    session_start();
                     $userinfo = $username;
                     $_SESSION['logged'] = $userinfo;
                     
@@ -46,8 +46,6 @@
                     }
                 }
             }
-            
-            
         ?>
     
         <div class="inlog">
