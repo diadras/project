@@ -88,7 +88,7 @@
             if(isset($_POST['upload'])){
                 if (!file_exists($curdir . "/img/" . $userinfo)){
                     if(mkdir($curdir . "/img/" . $userinfo)){
-                        ehco("dir has been created");
+                        echo("dir has been created");
                     }
                     else{
                         echo("failed to create dir");
@@ -107,8 +107,6 @@
                     $image = $_POST["fileToUpload"];
                     // saves the image in the assigned file
                     file_put_contents($source,$image, FILE_APPEND);
-    
-    
                 }
             }
         ?>
