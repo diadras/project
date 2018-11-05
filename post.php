@@ -21,7 +21,7 @@
             </div> 
         </div>
         <div class="upload">
-            <form action="./core/upload.php" method="POST" enctype="multipart/form-data" >
+            <form action="./upload.php" method="POST" enctype="multipart/form-data" >
                 <p> Image: </p> 
                 <input type="file" id="fileToUpload" name="fileToUpload">
                 <p>Title: </p>
@@ -33,7 +33,6 @@
             <p></p>
             <p></p>
             <?php
-                session_start();
                 if (!empty($_SESSION['txt'])){
                     echo($_SESSION['txt']);
                 }

@@ -1,7 +1,6 @@
 <?php
-include "./database.php";
-include "./loggedin"
-session_start();
+include "./core/database.php";
+include "./core/loggedin.php";
 $userinfo = $_SESSION['logged'];
 $target_dir = "./img/" . $userinfo . "/";
 $target_file = $target_dir. basename($_FILES["fileToUpload"]["name"]);
@@ -48,7 +47,6 @@ if(isset($_POST["upload"])) {
     // Check if $uploadOk is set to 0 by an error
     if ($uploadOk == 0) {
         $text .= "Sorry, your file was not uploaded."."<br>";
-        session_start();
         $_SESSION['txt'] = $text;
         header("location: "."../post.php");
     // if everything is ok, try to upload file
@@ -65,7 +63,7 @@ if(isset($_POST["upload"])) {
             $query1 = "INSERT INTO posts (photodata, title, recipe, users_id) VALUES('$target_file', '$title', '$recipe',".$id['id'].");";
     
             mysqli_query($db, $query1) or die("Error!" . mysqli_error($db));
-            header("location: "."../post.php");
+            header("location: "."./post.php");
         } else {
             echo "Sorry, there was an error uploading your file."."<br>";
         }
