@@ -62,7 +62,7 @@ if(isset($_POST["upload"])) {
             $query = "SELECT id FROM users WHERE username = '$userinfo';";
             $array = mysqli_query($db, $query) or die (mysqli_error($db));
             $id = mysqli_fetch_assoc($array);
-            $query1 = "INSERT INTO posts (photodata, recipe, users_id) VALUES('$target_file','$recipe',".$id['id'].");";
+            $query1 = "INSERT INTO posts (photodata, title, recipe, users_id) VALUES('$target_file', '$title', '$recipe',".$id['id'].");";
     
             mysqli_query($db, $query1) or die("Error!" . mysqli_error($db));
             header("location: "."../post.php");

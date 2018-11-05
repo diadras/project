@@ -20,6 +20,10 @@ body {
 	padding: 20px;
 	color: black;
 }
+.postimg{
+	width: 600px; 
+    height: auto; 
+}
 .post {
 	border: solid white 2px;
 	/* display: block; laat het object los van HTML voor herpositioneren in CSS */

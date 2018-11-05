@@ -28,8 +28,9 @@
 	    $array = mysqli_query($db,$query) or die (mysqli_error($db));
 
 	    while ($row = mysqli_fetch_assoc($array)) {
-		    echo ("<div class=\"post\">");
-            echo ("<img src=\"".$row["photodata"]."\"/><p>");
+            echo ("<div class=\"post\">");
+            echo ("Titel: ".$row['title']."<p>");
+            echo ("<img class=\"postimg\" style=\"width: 600px; height: auto;\" src=\"".$row["photodata"]."\"/><p>");
 		    echo ("Recept: ".$row["recipe"]."<p>");
 		    // ucfirst() zorgt voor uppercase i.v.m. naam van user
 		    echo ("Eigenaar: ".ucfirst($row["username"])."<p>");
