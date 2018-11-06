@@ -36,7 +36,7 @@ if(isset($_POST["upload"])) {
     }
     // Check file size
     if ($_FILES["fileToUpload"]["size"] > 500000) {
-        $text .= "Sorry, your file is too large."."<br>";
+        $text .= "Sorry, your file is too large. The maximum size is 5MB."."<br>";
         $uploadOk = 0;
     }
     // Allow certain file formats
@@ -48,7 +48,7 @@ if(isset($_POST["upload"])) {
     if ($uploadOk == 0) {
         $text .= "Sorry, your file was not uploaded."."<br>";
         $_SESSION['txt'] = $text;
-        header("location: "."../post.php");
+        header("location: "."./post.php");
     // if everything is ok, try to upload file
     } else {
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {

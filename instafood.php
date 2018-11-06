@@ -47,6 +47,9 @@
         if(isset($_POST['logout'])){
             header("location: "."./logout.php");
         }
+        if(isset($_POST['changeaccount'])){
+            header("location: "."./accountaanpassen.php");
+        }
       ?>
     </body>
 </html>

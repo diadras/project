@@ -4,7 +4,6 @@
     <?php
         include './core/database.php';
         include './core/functions.php';
-        include './core/loggedin.php';
     ?>
     <link href="./style/style.css" rel="stylesheet" type="text/css" media="all"/>
     <title>Register</title>
