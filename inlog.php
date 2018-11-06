@@ -38,7 +38,7 @@
                     $userinfo = $username;
                     $_SESSION['logged'] = $userinfo;
                     
-                    header('Location: '. "instafood.php");
+                    header("Location: `" . "instafood.php");
                 }
                 elseif(!empty($_POST["username"])){
                     if(!empty($_POST["password"])){

@@ -16,15 +16,17 @@
         </a>    
         <div class="buttons">    
             <form method="POST">
-                <button name="post"style="color: black;"> post </button>
+                <button name="post" style="color: black;"> post </button>
                 <br><br>
-                <button name="logout"style="color: black;"> logout </button>
+                <button name="changeaccount" style="color: black;"> change account </button>
+                <br><br>
+                <button name="logout" style="color: black;"> logout </button>
             </form>    
         </div> 
     </div>
     <h3>Testdata</h3>
       <?php
-  	    $query = "SELECT p.id, p.photodata, p.recipe, u.id, u.username FROM posts p JOIN users u ON p.users_id = u.id ORDER BY p.id;";
+  	    $query = "SELECT p.id, p.photodata, p.title, p.recipe, u.id, u.username FROM posts p JOIN users u ON p.users_id = u.id ORDER BY p.id;";
 	    $array = mysqli_query($db,$query) or die (mysqli_error($db));
 
 	    while ($row = mysqli_fetch_assoc($array)) {

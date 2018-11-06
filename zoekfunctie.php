@@ -32,7 +32,7 @@ if(isset($_POST['submit'])) {
     }
 
     $recipeQuery = "SELECT * FROM posts WHERE recipe LIKE '%$searchRequest%'";
-    if($result = mysqli_query($db, $postsQuery)) {
+    if($result = mysqli_query($db, $recipeQuery)) {
         while($row = mysqli_fetch_assoc($result)) {
             $searchResults[$resultCount++] = $row['recipe'];
         }

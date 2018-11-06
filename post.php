@@ -17,6 +17,8 @@
             <div class="buttons">    
                 <form method="POST">
                     <button name="logout"style="color: black;"> logout </button>
+                    <br><br>
+                    <button name="changeaccount" style="color: black;"> change account </button>
                 </form>    
             </div> 
         </div>
@@ -35,6 +37,13 @@
             <?php
                 if (!empty($_SESSION['txt'])){
                     echo($_SESSION['txt']);
+                }
+
+                if(isset($_POST['changeaccount'])){
+                    header("location: "."./accountaanpassen.php");
+                }
+                if(isset($_POST['logout'])){
+                    header("location: "."./logout.php");
                 }
             ?>
         </div>
