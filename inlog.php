@@ -37,7 +37,8 @@
                     session_start();
                     $userinfo = $username;
                     $_SESSION['logged'] = $userinfo;
-                    
+                 
+                    mysqli_close($db);
                     header("Location: " . "instafood.php");
                 }
                 elseif(!empty($_POST["username"])){

@@ -63,6 +63,7 @@ if(isset($_POST["upload"])) {
             $query1 = "INSERT INTO posts (photodata, title, recipe, users_id) VALUES('$target_file', '$title', '$recipe',".$id['id'].");";
     
             mysqli_query($db, $query1) or die("Error!" . mysqli_error($db));
+            mysqli_close($db);
             header("location: "."./post.php");
         } else {
             echo "Sorry, there was an error uploading your file."."<br>";

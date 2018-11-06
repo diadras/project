@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <?php 
-            include "./core/database.php"; 
+        <?php  
             include "./core/functions.php";
-            include "./core/loggedin.php"
+            include "./core/loggedin.php";
         ?>
         <title> Upload page </title>
         <link href="./style/style.css" rel="stylesheet" type="text/css" media="all"/> 
@@ -16,9 +15,9 @@
             </a>    
             <div class="buttons">    
                 <form method="POST">
-                    <button name="logout"style="color: black;"> logout </button>
-                    <br><br>
                     <button name="changeaccount" style="color: black;"> change account </button>
+                    <br><br>
+                    <button name="logout" style="color: black;"> logout </button>
                 </form>    
             </div> 
         </div>
