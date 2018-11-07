@@ -19,7 +19,7 @@
             <br>
             <button name="changeaccount" style="color: black;" onclick="window.location.href='/project/accountaanpassen.php'"> change account </button>
             <br>
-            <button name="logout" style="color: black;" onclick="window.location.href='/project/lougout.php'"> logout </button>
+            <button name="logout" style="color: black;" onclick="window.location.href='/project/logout.php'"> logout </button>
         </div> 
     </div>
     <h3>Testdata</h3>
