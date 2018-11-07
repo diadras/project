@@ -22,7 +22,7 @@
             <button name="logout" style="color: black;" onclick="window.location.href='/project/logout.php'"> logout </button>
         </div> 
     </div>
-    <h3>Testdata</h3>
+    <h4>Instafood</h4>
       <?php
         echo($_SESSION['logged']);
   	    $query = "SELECT p.id, p.photodata, p.title, p.recipe, u.id, u.username FROM posts p JOIN users u ON p.users_id = u.id ORDER BY p.id;";
