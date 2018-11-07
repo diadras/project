@@ -54,8 +54,9 @@
         <form method="POST">
             <p>Username: <input type="text" name="username"><br>
             <p>Password: <input type="password"  name="password"><br>
-            <p><input type="submit" value="Login" name="logindata">
-            <a href="aanmelden.php">register here</a></p>
+            <p><input type="submit" value="Login" name="logindata"></p>
+            <p>|<a href="./aanmelden.php">register here</a> |
+            <a href="./inlog.php">forgot password</a>|</p>
             <span class="error"><?php echo $wrongErr;?></span><br>
             <span class="error"><?php echo $nameErr;?></span><br>
             <span class="error"><?php echo $passErr;?></span>
