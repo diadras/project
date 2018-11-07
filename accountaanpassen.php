@@ -17,21 +17,21 @@
 		  <img src="./img/Logo.png" style=" height: 100px" title="Instafood"/>
     </a>    
     <div class="buttons">    
-      <button name="post" style="color: black;" onclick="window.location.href='/project/post.php'"> post </button>
+      <button name="post" onclick="window.location.href='/project/post.php'"> post </button>
       <br><br>
-      <button name="logout" style="color: black;" onclick="window.location.href='/project/logout.php'"> logout </button>  
+      <button name="logout" onclick="window.location.href='/project/logout.php'"> logout </button>  
     </div> 
   </div>
 
   <div class="account">
   <form method="post">
+     <h4>Account informatie aanpassen</h4>
     <table>
-      <th>Account informatie aanpassen</th>
   	<tr><td>Nieuwe Gebruikersnaam:</td><td> <input type="text" name="gebruikersnaam"></td></tr><br>
   	<tr><td>Nieuwe Wachtwoord:</td><td> <input type="password" name="wachtwoord"></td></tr><br>
     <tr><td>Herhaal Wachtwoord:</td><td> <input type="password" name="wachtwoord2"></td></tr><br>
   	<tr><td>Nieuwe E-mailadres:</td><td> <input type="text" name="email"></td></tr><br>
-  </table>
+  </table><br>
   <input type="submit" name="submit" value="Gegevens wijzigen"><br>
   </form>
 

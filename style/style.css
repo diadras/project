@@ -71,33 +71,33 @@ body {
 .upload {
 	text-align: center;
 	color: black;
-	border: solid #122152 5px;
 	display: block;
-	background-color: rgb(75, 207, 224);
+	background-image: linear-gradient(#ee2375, #f6832a);
 	width: 500px;
 	margin: 10px;
 	margin-left: auto;
 	margin-right: auto;
-	padding: 0px;
+	padding: 30px;
 }
 .aanmelden{
 	text-align: center;
 	color: black;
-	border: solid #122152 5px;
 	display: block;
-	background-color: lightgreen;
+	background-image: linear-gradient(#ee2375, #f6832a);
 	width: 500px;
 	margin: 10px;
 	margin-left: auto;
 	margin-right: auto;
-	padding: 5px
+	padding: 30px;
+	padding-left: 70px;
+	padding-right: 70px;
+	border:none;
 }
 .inlog {
 	text-align: center;
 	color: black;
-	border: solid #122152 5px;
 	display: block;
-	background-color: rgb(75, 207, 224);
+	background-image: linear-gradient(#ee2375, #f6832a);
 	width: 500px;
 	margin: 10px;
 	margin-left: auto;
@@ -107,15 +107,51 @@ body {
 .account{
 	text-align: center;
 	color: black;
-	border: solid #122152 5px;
 	display: block;
-	background-color: rgb(75, 207, 224);
+	background-image: linear-gradient(#ee2375, #f6832a);
 	width: 500px;
 	margin: 10px;
 	margin-left: auto;
 	margin-right: auto;
-	padding: 5px;
+	padding: 30px;
+	
 }
+.account h4{
+	font-family: cassandra;
+	font-size:30px;
+}
+
+input[type=submit]{
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding: 5px;
+	width: 150px;
+	color: black;
+	background-color: #ee2375;
+	border:solid #ee2375 1px;
+	font-size: 16px;
+	cursor: url('Cursor.png'), auto;
+}
+
+input[type=submit]:hover{
+	background-color: #f6832a;
+	border:solid #ee2375 1px;
+}
+input[type=reset]{
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding: 5px;
+	width: 50px;
+	color: black;
+	background-color: #ee2375;
+	border:solid #ee2375 1px;
+	font-size: 16px;
+	cursor: url('Cursor.png'), auto;
+}
+input[type=reset]:hover{
+	background-color: #f6832a;
+	border:solid #ee2375 1px;
+
 .error {
 	color: #FF0000;
 }
