@@ -24,7 +24,7 @@
    <br><br><br><br><br><br><br>
   <div class="account">
   <form method="post">
-     Account informatie aanpassen
+     Edit account information
     <table>
   	<tr><td>New username:</td><td> <input type="text" name="gebruikersnaam"></td></tr><br>
   	<tr><td>New password:</td><td> <input type="password" name="wachtwoord"></td></tr><br>
