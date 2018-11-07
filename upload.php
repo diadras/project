@@ -2,7 +2,7 @@
 include "./core/database.php";
 include "./core/loggedin.php";
 $userinfo = $_SESSION['logged'];
-$target_dir = "./img/" . $userinfo . "/";
+$target_dir = "./data/" . $userinfo . "/";
 $target_file = $target_dir. basename($_FILES["fileToUpload"]["name"]);
 $filename = basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;

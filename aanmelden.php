@@ -27,8 +27,8 @@
         <tr><td><h3>E-mail: </h3></td><td><input name="email" type="text"/></td></tr>
 </table>
 
-<input type="submit" name="submit" value="Create Account">
 <input type="reset" name="reset" value="Clear">
+<input type="submit" name="submit" value="Create Account">
 
 <?php
 
