@@ -22,7 +22,6 @@
             <button name="logout"  onclick="window.location.href='/project/logout.php'"> logout </button>
         </div> 
     </div>
-    <h4>Instafood</h4>
       <?php
         echo($_SESSION['logged']);
   	    $query = "SELECT p.id, p.photodata, p.title, p.recipe, u.id, u.username FROM posts p JOIN users u ON p.users_id = u.id ORDER BY p.id;";
@@ -30,7 +29,7 @@
 
 	    while ($row = mysqli_fetch_assoc($array)) {
             echo ("<div class=\"post\">");
-            echo ("Titel: ".$row['title']."<p>");
+            echo ($row['title']."<p>");
             echo ("<img class=\"postimg\" style=\"width: 600px; height: auto;\" src=\"".$row["photodata"]."\"/><p>");
 		    echo ("Recept: ".$row["recipe"]."<p>");
 		    // ucfirst() zorgt voor uppercase i.v.m. naam van user
