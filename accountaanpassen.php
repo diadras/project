@@ -31,7 +31,7 @@
     <tr><td>Repeat password:</td><td> <input type="password" name="wachtwoord2"></td></tr><br>
   	<tr><td>New e-mail:</td><td> <input type="text" name="email"></td></tr><br>
   </table><br>
-  <input type="submit" name="submit" value="Gegevens wijzigen"><br>
+  <input type="submit" name="submit" value="Edit information"><br>
   </form>
 
 

@@ -29,9 +29,9 @@
           echo ("<div class=\"post\">");
           echo ("<h2>".$row['title']."</h2><p>");
           echo ("<img class=\"postimg\" style=\"width: 600px; height: auto;\" src=\"".$row["photodata"]."\"/><p>");
-  		    echo ("Recept: ".$row["recipe"]."<p>");
+  		    echo ("Recipe: ".$row["recipe"]."<p>");
   		    // ucfirst() zorgt voor uppercase i.v.m. naam van user
-  		    echo ("Eigenaar: ".ucfirst($row["username"])."<p>");
+  		    echo ("User: ".ucfirst($row["username"])."<p>");
   		    echo ("</div>");
   	    }
 
