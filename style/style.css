@@ -1,7 +1,4 @@
-@font-face {
-	font-family: cassandra;
-	src: url('cassandra.ttf');
-}
+
 html{
 	cursor: url('Cursor.png'), auto;
 }
@@ -19,10 +16,17 @@ body {
 	height: 100px;
 	margin-left: auto;
 	margin-right: auto;
-	padding: 5px;
+	padding: 3px;
 	color: black;
 	background-color: black;
 }
+
+.header img{
+	display: inline;
+	float: left;
+}
+
+
 .buttons{
 	float: right;
 	padding: 10px;

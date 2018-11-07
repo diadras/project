@@ -16,7 +16,7 @@
 	<div class = "header">
 		<a href = "./index.php">
 			<img src="./img/Logo.jpeg" style="height: 100px" title="Instafood"/>
-		</a>
+		</a><h4>Instafood</h4>
 		<div class="buttons">
 			<button name="login"style="color: black;" onclick="window.location.href='/project/inlog.php'"> login </button> 
 		</div>
