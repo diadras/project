@@ -15,13 +15,11 @@
 		    <img src="./img/Logo.jpeg" style=" height: 100px" title="Instafood"/>
         </a>    
         <div class="buttons">    
-            <form method="POST">
-                <button name="post" style="color: black;"> post </button>
-                <br><br>
-                <button name="changeaccount" style="color: black;"> change account </button>
-                <br><br>
-                <button name="logout" style="color: black;"> logout </button>
-            </form>    
+            <button name="post" style="color: black;" onclick="window.location.href='/project/post.php'"> post </button>
+            <br>
+            <button name="changeaccount" style="color: black;" onclick="window.location.href='/project/accountaanpassen.php'"> change account </button>
+            <br>
+            <button name="logout" style="color: black;" onclick="window.location.href='/project/lougout.php'"> logout </button>
         </div> 
     </div>
     <h3>Testdata</h3>
@@ -41,16 +39,6 @@
 	    }
 		
         mysqli_close($db);
-        //cheack of de logout of post buttons zijn ingedrukt
-        if(isset($_POST['post'])){
-            header("location: "."post.php");
-        }
-        if(isset($_POST['logout'])){
-            header("location: "."./logout.php");
-        }
-        if(isset($_POST['changeaccount'])){
-            header("location: "."./accountaanpassen.php");
-        }
       ?>
     </body>
 </html>

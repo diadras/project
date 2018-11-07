@@ -18,14 +18,7 @@
 			<img src="./img/Logo.jpeg" style="height: 100px" title="Instafood"/>
 		</a>
 		<div class="buttons">
-			<form method="POST">
-			  <button name="login"style="color: black;"> login </button>
-      </form>
-      <?php
-        if(isset($_POST['login'])){
-          header("location: "."inlog.php");
-        }
-      ?> 
+			<button name="login"style="color: black;" onclick="window.location.href='/project/inlog.php'"> login </button> 
 		</div>
 	</div>
 	<h3>Testdata</h3>
