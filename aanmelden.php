@@ -16,7 +16,7 @@
 		<div class="buttons">
 			<button name="login"style="color: black;" onclick="window.location.href='./inlog.php'"> login </button>
 		</div>
-	</div>   <br><br><br><br><br><br><br>
+	</div>   <br><br><br><br>
 <fieldset class="aanmelden" style="width: 0px;">
 <h1>Create an account:</h1>
 

@@ -21,7 +21,7 @@
       <button name="post" onclick="window.location.href='./post.php'"> post </button>
     </div>
   </div>
-   <br><br><br><br><br><br><br>
+   <br><br><br><br>
   <div class="account">
   <form method="post">
      Edit account information
