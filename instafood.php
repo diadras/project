@@ -13,14 +13,14 @@
     <div class = "header">
         <a href = "./instafood.php">
 		    <img src="./img/Logo.png" style=" height: 100px" title="Instafood"/>
-        </a>    
-        <div class="buttons">    
-            <button name="post" onclick="window.location.href='/project/post.php'"> post </button>
+        </a>
+        <div class="buttons">
+            <button name="post" onclick="window.location.href='./post.php'"> post </button>
             <br><br>
-            <button name="changeaccount" onclick="window.location.href='/project/accountaanpassen.php'"> change account </button>
+            <button name="changeaccount" onclick="window.location.href='./accountaanpassen.php'"> change account </button>
             <br><br>
-            <button name="logout"  onclick="window.location.href='/project/logout.php'"> logout </button>
-        </div> 
+            <button name="logout"  onclick="window.location.href='./logout.php'"> logout </button>
+        </div>
     </div>
       <?php
         echo($_SESSION['logged']);
@@ -36,7 +36,7 @@
 		    echo ("Eigenaar: ".ucfirst($row["username"])."<p>");
 		    echo ("</div>");
 	    }
-		
+
         mysqli_close($db);
       ?>
     </body>
