@@ -1,14 +1,18 @@
+@font-face {
+	font-family: cassandra;
+	src: url(cassandra.ttf);
+}
+
 body {
-	background: black;
+	background: #313638;
 	color: white;
 }
 .header{
 	display: block;
 	border-style: solid;
-	border-color: white;
 	margin: 0px;
 	width: auto;
-	height: 150px;
+	height: 100px;
 	margin-left: auto;
 	margin-right: auto;
 	padding: 5px;

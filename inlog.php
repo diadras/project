@@ -11,7 +11,7 @@
     <body>
         <div class = "header">
             <a href = "./index.php">
-		        <img src="./img/Logo.jpeg" style="width: 260px; height: 150px" title="Instafood"/>
+		        <img src="./img/Logo.jpeg" style="height: 100px" title="Instafood"/>
             </a>
         </div>
          <?php 
@@ -50,7 +50,7 @@
         ?>
     
         <div class="inlog">
-        <img src="./img/profile.png" weidth="500" height="500"/>
+        <img src="./img/profile.png" weidth="250" height="250"/>
         <form method="POST">
             <p>Username: <input type="text" name="username"><br>
             <p>Password: <input type="password"  name="password"><br>

@@ -11,7 +11,7 @@
 <body>
     <div class = "header">
 		<a href = "./index.php">
-			<img src="./img/Logo.jpeg" style="width: 260px; height: 150px" title="Instafood"/>
+			<img src="./img/Logo.jpeg" style="height: 100px" title="Instafood"/>
 		</a>
 		<div class="buttons">
 			<form method="POST">
