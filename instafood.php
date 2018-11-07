@@ -15,7 +15,7 @@
 		    <img src="./img/Logo.jpeg" style=" height: 100px" title="Instafood"/>
         </a>    
         <div class="buttons">    
-            <button name="post" style=" onclick="window.location.href='/project/post.php'"> post </button>
+            <button name="post" onclick="window.location.href='/project/post.php'"> post </button>
             <br><br>
             <button name="changeaccount" onclick="window.location.href='/project/accountaanpassen.php'"> change account </button>
             <br><br>
