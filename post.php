@@ -11,11 +11,10 @@
     <body>
         <div class = "header">
             <a href = "./instafood.php">
-		        <img src="./img/Logo.png" style=" height: 100px" title="Instafood"/>
+		        <img src="./img/Logo.png" style=" height: 40px" title="Instafood"/>
             </a>
             <div class="buttons">
                 <button name="changeaccount" onclick="window.location.href='./accountaanpassen.php'"> change account </button>
-                <br><br>
                 <button name="logout"  onclick="window.location.href='./logout.php'"> logout </button>
             </div>
         </div>   <br><br><br><br><br><br><br>

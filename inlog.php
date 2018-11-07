@@ -11,12 +11,12 @@
     <body>
         <div class = "header">
             <a href = "./index.php">
-		        <img src="./img/Logo.png" style="height: 100px" title="Instafood"/>
+		        <img src="./img/Logo.png" style="height: 40px" title="Instafood"/>
             </a>
         </div>   <br><br><br><br><br><br><br>
-         <?php 
+         <?php
             $nameErr = $passErr = $wrongErr = "";
-            
+
             if (isset($_POST["logindata"])){
                 //check of er een wachtwoord of username is ingevuld
                 if (empty($_POST["username"])){
@@ -31,13 +31,13 @@
 
                 $query = "SELECT `username`,`password` FROM `users` WHERE `username` = '$username' AND `password` = '$password'";
                 $result = mysqli_query($db,$query);
-                
+
                 //als er een result is dan wordt je door gestuurt naar de hoofdpagina waar je dan ingelogd bent
                 if(mysqli_num_rows($result) == 1){
                     session_start();
                     $userinfo = $username;
                     $_SESSION['logged'] = $userinfo;
-                 
+
                     mysqli_close($db);
                     header("Location: " . "instafood.php");
                 }
@@ -48,7 +48,7 @@
                 }
             }
         ?>
-    
+
         <div class="inlog">
         <img src="./img/profile.png" weidth="250" height="250"/>
         <form method="POST">

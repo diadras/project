@@ -14,11 +14,10 @@
 <body>
   <div class = "header">
     <a href = "./instafood.php">
-		  <img src="./img/Logo.png" style=" height: 100px" title="Instafood"/>
+		  <img src="./img/Logo.png" style=" height: 40px" title="Instafood"/>
     </a>
     <div class="buttons">
       <button name="post" onclick="window.location.href='./post.php'"> post </button>
-      <br><br>
       <button name="logout" onclick="window.location.href='./logout.php'"> logout </button>
     </div>
   </div>
@@ -27,10 +26,10 @@
   <form method="post">
      Account informatie aanpassen
     <table>
-  	<tr><td>Nieuwe Gebruikersnaam:</td><td> <input type="text" name="gebruikersnaam"></td></tr><br>
-  	<tr><td>Nieuwe Wachtwoord:</td><td> <input type="password" name="wachtwoord"></td></tr><br>
-    <tr><td>Herhaal Wachtwoord:</td><td> <input type="password" name="wachtwoord2"></td></tr><br>
-  	<tr><td>Nieuwe E-mailadres:</td><td> <input type="text" name="email"></td></tr><br>
+  	<tr><td>New username:</td><td> <input type="text" name="gebruikersnaam"></td></tr><br>
+  	<tr><td>New password:</td><td> <input type="password" name="wachtwoord"></td></tr><br>
+    <tr><td>Repeat password:</td><td> <input type="password" name="wachtwoord2"></td></tr><br>
+  	<tr><td>New e-mail:</td><td> <input type="text" name="email"></td></tr><br>
   </table><br>
   <input type="submit" name="submit" value="Gegevens wijzigen"><br>
   </form>

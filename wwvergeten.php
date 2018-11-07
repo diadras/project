@@ -11,7 +11,7 @@
     <body>
         <div class = "header">
             <a href = "./index.php">
-		        <img src="./img/Logo.jpeg" style="height: 100px" title="Instafood"/>
+		        <img src="./img/Logo.jpeg" style="height: 40px" title="Instafood"/>
             </a>
             <div class="buttons">
 			    <button name="login"style="color: black;" onclick="window.location.href='./inlog.php'"> login </button>
@@ -22,7 +22,7 @@
             $emailErr = $succes = "";
             session_start();
             if (isset($_POST["mail"])){
-                
+
                 $email = test_input($_POST["email"]);
 
                 //check of er een email is ingevuld
@@ -33,14 +33,14 @@
                     $emailErr .="<li class=\"formerror\">Vul een geldig e-mailadres in. </li>";
                 }
 
-                //check of een row te vinden is die het email heeft 
+                //check of een row te vinden is die het email heeft
                 $query = "SELECT * FROM users WHERE email='$email' limit 1";
                 $result = mysqli_query($db,$query);
-                
+
                 //mailt het nieuwe wachtwoord
                 if(mysqli_num_rows($result) == 1){
                     $nieuwpass = genpassword();
-                    
+
                     $query2 = "UPDATE users SET password = '$nieuwpass' WHERE username='$email'";
                     $result2 = mysqli_query($db,$query2);
                     //mail het nieuwe wachtwoord

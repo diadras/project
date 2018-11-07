@@ -15,7 +15,7 @@
 <body>
 	<div class = "header">
 		<a href = "./index.php">
-			<img src="./img/Logo.png" style="height: 100px" title="Instafood"/>
+			<img src="./img/Logo.png" style="height: 40px" title="Instafood"/>
 		</a>
 		<div class="buttons">
 			<button name="login" onclick="window.location.href='./inlog.php'"> login </button>
