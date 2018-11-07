@@ -21,6 +21,7 @@
 			<button name="login" onclick="window.location.href='/project/inlog.php'"> login </button> 
 		</div>
 	</div>
+	  <br><br><br><br><br>
 	<?php
 		$query = "SELECT p.id, p.photodata, p.title, p.recipe, u.id, u.username FROM posts p JOIN users u ON p.users_id = u.id ORDER BY p.id;";
 		$array = mysqli_query($db,$query) or die (mysqli_error($db));

@@ -22,7 +22,7 @@
       <button name="logout" onclick="window.location.href='/project/logout.php'"> logout </button>  
     </div> 
   </div>
-
+   <br><br><br><br><br><br><br>
   <div class="account">
   <form method="post">
      Account informatie aanpassen
