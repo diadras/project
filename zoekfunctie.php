@@ -1,18 +1,29 @@
 <html>
-
+<head>
+    <?php
+        include './core/database.php';
+        include './core/functions.php';
+        include './core/loggedin.php';
+    ?>
+    <title> Search page </title>
+    <link href="./style/style.css" rel="stylesheet" type="text/css" media="all"/>
+</head>
+<body>
+<div class = "header">
+	<a href = "./index.php">
+		<img src="./img/Logo.png" style="height: 40px" title="Instafood"/>
+	</a>
+	<div class="buttons">
+		<button name="login" onclick="window.location.href='./inlog.php'"> login </button>
+	</div>
+</div>
+<br><br><br><br><br><br><br>
 <form action='zoekfunctie.php' method='POST'>
 <fieldset>
 Search: <input type='text' name='sqry' size='40' placeholder='Tags, Hashtags, Posts, Users' />
 <input type='submit' name='submit' value="search" />
 </fieldset>
-
-</form>
-
-</html>
-
 <?php
-include './core/database.php';
-
 
 if(isset($_POST['submit'])) {
 
@@ -60,3 +71,8 @@ if(isset($_POST['submit'])) {
 mysqli_close($db);
 
 ?>
+
+</form>
+</body>
+</html>
+

@@ -33,6 +33,7 @@
             <?php
                 if (!empty($_SESSION['txt'])){
                     echo($_SESSION['txt']);
+                    session_unset('txt');
                 }
             ?>
         </div>
