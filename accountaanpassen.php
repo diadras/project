@@ -17,8 +17,8 @@
 		  <img src="./img/Logo.png" style=" height: 40px" title="Instafood"/>
     </a>
     <div class="buttons">
-      <button name="post" onclick="window.location.href='./post.php'"> post </button>
       <button name="logout" onclick="window.location.href='./logout.php'"> logout </button>
+      <button name="post" onclick="window.location.href='./post.php'"> post </button>
     </div>
   </div>
    <br><br><br><br><br><br><br>
@@ -31,7 +31,7 @@
     <tr><td>Repeat password:</td><td> <input type="password" name="wachtwoord2"></td></tr><br>
   	<tr><td>New e-mail:</td><td> <input type="text" name="email"></td></tr><br>
   </table><br>
-  <input type="submit" name="submit" value="Gegevens wijzigen"><br>
+  <input type="submit" name="submit" value="Edit information"><br>
   </form>
 
 
