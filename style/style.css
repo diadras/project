@@ -1,3 +1,7 @@
+@font-face{
+	font-family: 'cassandra';
+	src: url('Cassandra.ttf');
+}
 
 html{
 	cursor: url('Cursor.png'), auto;
@@ -61,6 +65,8 @@ body {
 	margin-right: auto;
 	padding: 5px;
 	background-color: #ee2375;
+	font-family: 'cassandra';
+	font-size: 40px;
 }
 .upload {
 	text-align: center;
