@@ -23,6 +23,10 @@ body {
 
 .header img{
 	float: left;
+	cursor: url('Cursor.png'), auto;
+}
+.header img:hover {
+	opacity: 0.8;
 }
 
 .buttons button{
@@ -35,6 +39,7 @@ body {
 	background-color: #ee2375;
 	border:none;
 	font-size: 16px;
+	cursor: url('Cursor.png'), auto;
 }
 
 .buttons button:hover {
