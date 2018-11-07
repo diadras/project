@@ -77,7 +77,7 @@ echo "<br /> <br />";
     else {
             $query = "INSERT INTO users (username, password, email, level) VALUES('$username','$password','$email', '0')";
 
-            mysqli_query($conn, $query) or die("Error!" . mysqli_error($conn));
+            mysqli_query($db, $query) or die("Error!" . mysqli_error($db));
             
             // maakt gelijk een sessie aan zodat je ingelogd bent
             session_start();
