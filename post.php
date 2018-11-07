@@ -14,11 +14,9 @@
 		        <img src="./img/Logo.jpeg" style=" height: 100px" title="Instafood"/>
             </a>    
             <div class="buttons">    
-                <form method="POST">
-                    <button name="changeaccount" style="color: black;"> change account </button>
-                    <br>
-                    <button name="logout" style="color: black;"> logout </button>
-                </form>    
+                <button name="changeaccount" style="color: black;" onclick="href='/project/accountaanpassen.php'"> change account </button>
+                <br>
+                <button name="logout" style="color: black;" onclick="window.location.href='/project/logout.php'"> logout </button>   
             </div> 
         </div>
         <div class="upload">
@@ -36,13 +34,6 @@
             <?php
                 if (!empty($_SESSION['txt'])){
                     echo($_SESSION['txt']);
-                }
-
-                if(isset($_POST['changeaccount'])){
-                    header("location: "."./accountaanpassen.php");
-                }
-                if(isset($_POST['logout'])){
-                    header("location: "."./logout.php");
                 }
             ?>
         </div>
