@@ -63,7 +63,8 @@ body {
 	margin: 10px;
 	margin-left: auto;
 	margin-right: auto;
-	padding: 5px;
+	padding: 10px;
+	padding-top: 0px;
 	background-color: #ee2375;
 }
 
