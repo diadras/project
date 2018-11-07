@@ -36,6 +36,9 @@ if(isset($_POST['submit'])) {
     $usernameQuery = "SELECT * FROM users WHERE username LIKE '%$searchRequest%'";
     if($result = mysqli_query($db, $usernameQuery)) {
         while($row = mysqli_fetch_assoc($result)) {
+            //fotodata
+            $searchResults[$resultCount++] = $row['title'];
+            $searchResults[$resultCount++] = $row['recipe'];
             $searchResults[$resultCount++] = $row['username'];
         }
 
@@ -45,7 +48,10 @@ if(isset($_POST['submit'])) {
     $recipeQuery = "SELECT * FROM posts WHERE recipe LIKE '%$searchRequest%'";
     if($result = mysqli_query($db, $recipeQuery)) {
         while($row = mysqli_fetch_assoc($result)) {
+            //fotodata
+            $searchResults[$resultCount++] = $row['title'];
             $searchResults[$resultCount++] = $row['recipe'];
+            $searchResults[$resultCount++] = $row['username'];
         }
 
          mysqli_free_result($result);
@@ -54,7 +60,10 @@ if(isset($_POST['submit'])) {
   $titleQuery = "SELECT * FROM posts WHERE title LIKE '%$searchRequest%'";
     if($result = mysqli_query($db, $titleQuery)) {
         while($row = mysqli_fetch_assoc($result)) {
+            //fotodata
             $searchResults[$resultCount++] = $row['title'];
+            $searchResults[$resultCount++] = $row['recipe'];
+            $searchResults[$resultCount++] = $row['username'];
         }
 
          mysqli_free_result($result);
@@ -70,6 +79,8 @@ if(isset($_POST['submit'])) {
 
 mysqli_close($db);
 
+
+//dit hele bestand werkt niet
 ?>
 
 </form>
