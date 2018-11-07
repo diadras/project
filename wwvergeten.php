@@ -19,7 +19,7 @@
         </div>
         <br><br><br><br><br><br><br>
         <?php
-            $emailErr = "";
+            $emailErr = $succes = "";
             session_start();
             if (isset($_POST["mail"])){
                 
@@ -46,7 +46,7 @@
                     //mail het nieuwe wachtwoord
                     $msg = "Your password new is: " . $nieuwpass;
                     mail($email,"Forgot password",$msg);
-                    echo("Your password has been send");
+                    $succes = ("Your password has been send");
                 }
                 mysqli_close($db);
             }
@@ -57,7 +57,8 @@
             <p>E-mail: <input type="text" name="email"><br>
             <p><input type="submit" value="Mail me" name="mail">
             <a href="./inlog.php">go back</a></p>
-            <span class="error"><?php echo $emailErr;?></span>
+            <span class="error"><?php echo $emailErr;?></span><br>
+            <span><?php echo $succes;?></span>
         </form>
         </div>
     </body>
