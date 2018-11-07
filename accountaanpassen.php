@@ -25,7 +25,7 @@
 
   <div class="account">
   <form method="post">
-     <h4>Account informatie aanpassen</h4>
+     Account informatie aanpassen
     <table>
   	<tr><td>Nieuwe Gebruikersnaam:</td><td> <input type="text" name="gebruikersnaam"></td></tr><br>
   	<tr><td>Nieuwe Wachtwoord:</td><td> <input type="password" name="wachtwoord"></td></tr><br>

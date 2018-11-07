@@ -81,7 +81,7 @@ body {
 	margin: 10px;
 	margin-left: auto;
 	margin-right: auto;
-	padding: 30px;
+	padding: 20px;
 }
 .aanmelden{
 	text-align: center;
@@ -120,10 +120,7 @@ body {
 	padding: 30px;
 	
 }
-.account h4{
-	font-family: cassandra;
-	font-size:30px;
-}
+
 
 input[type=submit]{
 	margin-top: 0px;

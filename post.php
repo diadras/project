@@ -26,7 +26,7 @@
                 <p>Title: </p>
                 <input type="text" name= "title"><br>
                 <p> Recipe: </p>
-                <textarea name= "recipe" rows="5" cols="40"></textarea><br>
+                <textarea name= "recipe" rows="5" cols="40"></textarea><br><br>
                 <input type="submit" name="upload" value="Post"/> 
             </form>
             <p></p>
