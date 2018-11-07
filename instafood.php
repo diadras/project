@@ -17,9 +17,9 @@
         <div class="buttons">    
             <form method="POST">
                 <button name="post" style="color: black;"> post </button>
-                <br><br>
+                <br>
                 <button name="changeaccount" style="color: black;"> change account </button>
-                <br><br>
+                <br>
                 <button name="logout" style="color: black;"> logout </button>
             </form>    
         </div> 
