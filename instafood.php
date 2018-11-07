@@ -25,7 +25,7 @@
     <br><br><br><br><br>
       <?php
         echo($_SESSION['logged']);
-  	    $query = "SELECT p.id, p.photodata, p.title, p.recipe, u.id, u.username FROM posts p JOIN users u ON p.users_id = u.id ORDER BY p.id;";
+  	    $query = "SELECT p.id, p.photodata, p.title, p.recipe, u.id, u.username FROM posts p JOIN users u ON p.users_id = u.id ORDER BY p.id DESC;";
 	    $array = mysqli_query($db,$query) or die (mysqli_error($db));
 
 	    while ($row = mysqli_fetch_assoc($array)) {
