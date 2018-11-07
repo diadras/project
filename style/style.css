@@ -22,17 +22,25 @@ body {
 }
 
 .header img{
-	display: inline;
 	float: left;
 }
 
-
-.buttons{
+.buttons button{
 	float: right;
-	padding: 10px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding: 5px;
+	width: 150px;
 	color: black;
+	background-color: #ee2375;
+	border:none;
+	font-size: 16px;
 }
-.postimg{
+
+.buttons button:hover {
+	background-color: #f6832a; 
+}
+.post img{
 	width: 600px; 
     height: auto; 
 }

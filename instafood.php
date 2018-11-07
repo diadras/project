@@ -15,11 +15,11 @@
 		    <img src="./img/Logo.jpeg" style=" height: 100px" title="Instafood"/>
         </a>    
         <div class="buttons">    
-            <button name="post" style="color: black;" onclick="window.location.href='/project/post.php'"> post </button>
-            <br>
-            <button name="changeaccount" style="color: black;" onclick="window.location.href='/project/accountaanpassen.php'"> change account </button>
-            <br>
-            <button name="logout" style="color: black;" onclick="window.location.href='/project/logout.php'"> logout </button>
+            <button name="post" style=" onclick="window.location.href='/project/post.php'"> post </button>
+            <br><br>
+            <button name="changeaccount" onclick="window.location.href='/project/accountaanpassen.php'"> change account </button>
+            <br><br>
+            <button name="logout"  onclick="window.location.href='/project/logout.php'"> logout </button>
         </div> 
     </div>
     <h3>Testdata</h3>
