@@ -18,7 +18,7 @@
 			<img src="./img/Logo.png" style="height: 100px" title="Instafood"/>
 		</a>
 		<div class="buttons">
-			<button name="login" onclick="window.location.href='/project/inlog.php'"> login </button> 
+			<button name="login" onclick="window.location.href='./inlog.php'"> login </button> 
 		</div>
 	</div>
 	  <br><br><br><br><br>
@@ -35,7 +35,7 @@
 			echo ("Eigenaar: ".ucfirst($row["username"])."<p>");
 			echo ("</div>");
 		}
-		
+
 		mysqli_close($db);
 	 ?>
 </body>
