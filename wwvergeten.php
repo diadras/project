@@ -14,12 +14,12 @@
 		        <img src="./img/Logo.jpeg" style="height: 100px" title="Instafood"/>
             </a>
             <div class="buttons">
-			    <button name="login"style="color: black;" onclick="window.location.href='/project/inlog.php'"> login </button> 
+			    <button name="login"style="color: black;" onclick="window.location.href='./inlog.php'"> login </button>
 		    </div>
         </div>
-        <?php 
+        <?php
             $nameErr = $emailErr = "";
-            
+
             if (isset($_POST["mail"])){
                 //check of er een email of username is ingevuld
                 if (empty($_POST["username"])){
@@ -28,7 +28,7 @@
                 if (empty($_POST["email"])){
                     $emailErr = "Please enter email";
                 }
-                
+
                 $username = test_input($_POST["username"]);
                 $email = test_input($_POST["email"]);
                 //check of een row te vinden is die zowel de username als email heeft
@@ -42,12 +42,12 @@
                     $curpass = mysqli_fetch_assoc($result2);
                     $msg = "Your password is: " . $curpass;
                     mail($email,"Forgot password",$msg);
-                 
+
                 }
                 mysqli_close($db);
             }
         ?>
-    
+
         <div class="inlog">
         <form method="POST">
             <p>Username: <input type="text" name="username"><br>

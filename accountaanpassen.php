@@ -15,12 +15,12 @@
   <div class = "header">
     <a href = "./instafood.php">
 		  <img src="./img/Logo.png" style=" height: 100px" title="Instafood"/>
-    </a>    
-    <div class="buttons">    
-      <button name="post" onclick="window.location.href='/project/post.php'"> post </button>
+    </a>
+    <div class="buttons">
+      <button name="post" onclick="window.location.href='./post.php'"> post </button>
       <br><br>
-      <button name="logout" onclick="window.location.href='/project/logout.php'"> logout </button>  
-    </div> 
+      <button name="logout" onclick="window.location.href='./logout.php'"> logout </button>
+    </div>
   </div>
    <br><br><br><br><br><br><br>
   <div class="account">
@@ -37,16 +37,16 @@
 
 
   <?php
-     
+
     if (isset($_POST["submit"])){
-      
+
       $error_msg ="";
       $curuser = $_SESSION['logged'];
       $username = $_POST["gebruikersnaam"];
       $password = $_POST["wachtwoord"];
       $password2 = $_POST["wachtwoord2"];
       $email = $_POST["email"];
-      
+
       if(strlen($username)<2){
         $error_msg.="<li >Vul een gebruikersnaam in. </li>";
       }
@@ -73,12 +73,12 @@
       else{
         $query = "UPDATE users SET username = '$username', password = '$password', email = '$email' WHERE username = '$curuser' ";
         mysqli_query($db,$query) or die (mysqli_error($db));
-        
+
         $_SESSION['logged'] = $username;
         header("location: " . "./instafood.php");
       }
     }
-    
+
     mysqli_close($db);
 	?>
   </div>

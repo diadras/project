@@ -14,7 +14,7 @@
 			<img src="./img/Logo.png" style="height: 100px" title="Instafood"/>
 		</a>
 		<div class="buttons">
-			<button name="login"style="color: black;" onclick="window.location.href='/project/inlog.php'"> login </button> 
+			<button name="login"style="color: black;" onclick="window.location.href='./inlog.php'"> login </button>
 		</div>
 	</div>   <br><br><br><br><br><br><br>
 <fieldset class="aanmelden" style="width: 0px;">
@@ -25,12 +25,12 @@
         <tr><td><h3>Username: </h3></td><td><input name="username" type="text"/></td></tr>
         <tr><td><h3>Password: </h3></td><td><input name="password" type="password"/></td></tr>
         <tr><td><h3>E-mail: </h3></td><td><input name="email" type="text"/></td></tr>
-</table>  
+</table>
 
 <input type="submit" name="submit" value="Create Account">
 <input type="reset" name="reset" value="Clear">
 
-<?php 
+<?php
 
 if (isset($_POST['submit'])){
         $error_msg ="";
@@ -71,7 +71,7 @@ echo "<br /> <br />";
             $query = "INSERT INTO users (username, password, email, level) VALUES('$username','$password','$email', '0')";
 
             mysqli_query($db, $query) or die("Error!" . mysqli_error($db));
-            
+
             // maakt gelijk een sessie aan zodat je ingelogd bent
             session_start();
             $userinfo = $username;
