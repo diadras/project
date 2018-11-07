@@ -7,7 +7,7 @@ $target_file = $target_dir. basename($_FILES["fileToUpload"]["name"]);
 $filename = basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-$text = $text2 = ""; 
+$text = $text2 = "";
 
 // Check if image file is a actual image or fake image
 if(isset($_POST["upload"])) {
@@ -19,7 +19,7 @@ if(isset($_POST["upload"])) {
         $text .= "File is not an image."."<br>";
         $uploadOk = 0;
     }
-            
+
     //check if folder exist else make one
     if (!file_exists($target_dir)){
         if(mkdir($target_dir)){
@@ -35,7 +35,7 @@ if(isset($_POST["upload"])) {
         $uploadOk = 0;
     }
     // Check file size
-    if ($_FILES["fileToUpload"]["size"] > 500000) {
+    if ($_FILES["fileToUpload"]["size"] > 5000000) {
         $text .= "Sorry, your file is too large. The maximum size is 5MB."."<br>";
         $uploadOk = 0;
     }
@@ -61,7 +61,7 @@ if(isset($_POST["upload"])) {
             $array = mysqli_query($db, $query) or die (mysqli_error($db));
             $id = mysqli_fetch_assoc($array);
             $query1 = "INSERT INTO posts (photodata, title, recipe, users_id) VALUES('$target_file', '$title', '$recipe',".$id['id'].");";
-    
+
             mysqli_query($db, $query1) or die("Error!" . mysqli_error($db));
             mysqli_close($db);
             header("location: "."./post.php");
