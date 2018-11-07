@@ -55,4 +55,28 @@ function test_input($data) {
   $data = str_replace("'","",$data); // houdt sql injecties tegen
   return $data;
 }
+function genpassword(){
+  $wachtwoord = array();
+
+		for ($i=0; $i < 2; $i++) {
+			$special = mt_rand(33,47);
+			array_push($wachtwoord, chr($special));
+		}
+
+		for ($i=0; $i < 5; $i++) {
+			$klein = mt_rand(97,122);
+			array_push($wachtwoord, chr($klein));
+		}
+		for ($i=0; $i < 3; $i++) {
+			$cijfer = mt_rand(48,57);
+			array_push($wachtwoord, chr($cijfer));
+		}
+
+		$hoofd = mt_rand(65,90);
+		array_push($wachtwoord, chr($hoofd));
+
+		shuffle($wachtwoord);
+		$wachtwoord = implode("",$wachtwoord);
+		return $wachtwoord;
+}
 ?>

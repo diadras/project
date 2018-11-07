@@ -57,6 +57,12 @@ echo "<br /> <br />";
     elseif(!preg_match("/^[_a-zA-Z0-9-]+(\.[_a-zA-Z0-9-]+)*@([a-zA-Z0-9-]+\.)+([a-zA-Z]{2,4})$/",$email)) {
         $error_msg.="<li class=\"formerror\">Vul een geldig e-mailadres in. </li>";
     }
+//Bestaat de email al?
+    $query = "SELECT * FROM users WHERE email = '$email'";
+    $result = mysqli_query($db, $query) or die ("FOUT: " . mysqli_error());
+    if(mysqli_num_rows($result) > 0){
+        $error_msg.="<li class=\"formerror\">De email is al in gebruik. </li>";
+    }
 //Bestaat de gebruikersnaam al?
     $query = "SELECT * FROM users WHERE username = '$username'";
     $result = mysqli_query($db, $query) or die ("FOUT: " . mysqli_error());
