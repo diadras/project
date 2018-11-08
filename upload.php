@@ -1,6 +1,7 @@
 <?php
 include "./core/database.php";
 include "./core/loggedin.php";
+// asign data
 $userinfo = $_SESSION['logged'];
 $target_dir = "./data/" . $userinfo . "/";
 $target_file = $target_dir. basename($_FILES["fileToUpload"]["name"]);
@@ -51,7 +52,7 @@ if(isset($_POST["upload"])) {
         header("location: "."./post.php");
     // if everything is ok, try to upload file
     } else {
-        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_dir)) {
             $text2 .= "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded."."<br>";
             $title = test_input($_POST["title"]);
             $recipe = test_input($_POST["recipe"]);
