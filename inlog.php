@@ -13,7 +13,7 @@
             <a href = "./index.php">
 		        <img src="./img/Logo.png" style="height: 40px" title="Instafood"/>
             </a>
-        </div>   <br><br><br><br><br><br><br>
+        </div>   <br><br><br><br>
          <?php
             $nameErr = $passErr = $wrongErr = "";
 

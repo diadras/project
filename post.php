@@ -17,7 +17,7 @@
                 <button name="logout"  onclick="window.location.href='./logout.php'"> logout </button>
                 <button name="changeaccount" onclick="window.location.href='./accountaanpassen.php'"> change account </button>
             </div>
-        </div>   <br><br><br><br><br><br><br>
+        </div>   <br><br><br><br>
         <div class="upload">
             <form action="./upload.php" method="POST" enctype="multipart/form-data" >
                 <p> Image: </p>
@@ -33,7 +33,7 @@
             <?php
                 if (!empty($_SESSION['txt'])){
                     echo($_SESSION['txt']);
-                    session_unset('txt');
+                    unset($_SESSION['txt']);
                 }
             ?>
         </div>

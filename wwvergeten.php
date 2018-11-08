@@ -17,7 +17,7 @@
 			    <button name="login"style="color: black;" onclick="window.location.href='./inlog.php'"> login </button>
 		    </div>
         </div>
-        <br><br><br><br><br><br><br>
+        <br><br><br><br>
         <?php
             $emailErr = $succes = "";
             session_start();

@@ -17,7 +17,7 @@
 		<button name="login" onclick="window.location.href='./inlog.php'"> login </button>
 	</div>
 </div>
-<br><br><br><br><br><br><br>
+<br><br><br><br>
 <form action='zoekfunctie.php' method='POST'>
 <fieldset>
 Search: <input type='text' name='sqry' size='40' placeholder='Tags, Hashtags, Posts, Users' />
@@ -86,4 +86,3 @@ mysqli_close($db);
 </form>
 </body>
 </html>
-
