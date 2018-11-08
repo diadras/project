@@ -53,8 +53,8 @@ if(isset($_POST["upload"])) {
     } else {
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
             $text2 .= "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded."."<br>";
-            $title = $_POST["title"];
-            $recipe = $_POST["recipe"];
+            $title = test_input($_POST["title"]);
+            $recipe = test_input($_POST["recipe"]);
             $_SESSION['txt'] = $text2;
 
             $query = "SELECT id FROM users WHERE username = '$userinfo';";
