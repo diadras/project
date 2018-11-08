@@ -41,38 +41,48 @@
 
       $error_msg ="";
       $curuser = $_SESSION['logged'];
-      $username = $_POST["gebruikersnaam"];
-      $password = $_POST["wachtwoord"];
-      $password2 = $_POST["wachtwoord2"];
-      $email = $_POST["email"];
+      $username = test_input($_POST["gebruikersnaam"]);
+      $password = test_input($_POST["wachtwoord"]);
+      $password2 = test_input($_POST["wachtwoord2"]);
+      $email = test_input($_POST["email"]);
 
-      if(strlen($username)<2){
-        $error_msg.="<li >Vul een gebruikersnaam in. </li>";
-      }
-
-      if(empty($password || $password2)){
-        $error_msg.="<li>Vul een wachtwoord in. </li>";
-      }elseif(strlen($password)<4){
-        $error_msg.="<li >Het wachtwoord moet uit minstens 4 tekens bestaan! </li>";
-      }
-
-      if ($password != $password){
-        $error_msg .= "Wacthwoorden zijn niet het zelfde."."<br>";
+      if(!empty($username)){
+        if (strlen($username)<2){
+          $error_msg .= "<li> Vul een gebruikersnaam in. </li>";
+        } else{
+          $queryuser = "UPDATE users SET username = '$username' WHERE username = '$curuser'";
+          mysqli_query($db,$queryuser) or die (mysqli_error($db));
+        }
       }
 
-      if(empty($email)){
-        $error_msg.="<li class=\"formerror\">Vul een e-mailadres in. </li>";
+      if (!empty($password || $password2)){
+        //zijn de wachtwoorden het zelfde
+        if ($password != $password){
+          $error_msg .= "<li> Wacthwoorden zijn niet het zelfde. </li>";
+        }
+        //bstaat het wachtwoordt uit meer dan 4 karakters
+        elseif (strlen($password)<4){
+          $error_msg .= "<li> Het wachtwoord moet uit minstens 4 tekens bestaan! </li>";
+        } else{
+          $querypass = "UPDATE users SET password = '$password' WHERE username = '$curuser'";
+          mysqli_query($db,$querypass) or die (mysqli_error($db));
+        }
       }
-      elseif(!preg_match("/^[_a-zA-Z0-9-]+(\.[_a-zA-Z0-9-]+)*@([a-zA-Z0-9-]+\.)+([a-zA-Z]{2,4})$/",$email)) {
-        $error_msg.="<li class=\"formerror\">Vul een geldig e-mailadres in. </li>";
+
+
+      if(!empty($email)){
+        //geldig email
+        if(!preg_match("/^[_a-zA-Z0-9-]+(\.[_a-zA-Z0-9-]+)*@([a-zA-Z0-9-]+\.)+([a-zA-Z]{2,4})$/",$email)) {
+          $error_msg.="<li> Vul een geldig e-mailadres in. </li>";
+        }else{
+          $querypass = "UPDATE users SET email = '$email' WHERE username = '$curuser'";
+          mysqli_query($db,$querypass) or die (mysqli_error($db));
+        }
       }
+      else
       if (strlen($error_msg) > 0){
         echo("<span class=\"error\">" . $error_msg . "</span>");
-      }
-      else{
-        $query = "UPDATE users SET username = '$username', password = '$password', email = '$email' WHERE username = '$curuser' ";
-        mysqli_query($db,$query) or die (mysqli_error($db));
-
+      } else{
         $_SESSION['logged'] = $username;
         header("location: " . "./instafood.php");
       }

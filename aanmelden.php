@@ -34,9 +34,9 @@
 
 if (isset($_POST['submit'])){
         $error_msg ="";
-        $username = mysqli_real_escape_string($db, $_POST['username']);
-        $password = mysqli_real_escape_string($db, $_POST['password']);
-        $email = mysqli_real_escape_string($db, $_POST['email']);
+        $username = test_input(mysqli_real_escape_string($db, $_POST['username']));
+        $password = test_input(mysqli_real_escape_string($db, $_POST['password']));
+        $email = test_input(mysqli_real_escape_string($db, $_POST['email']));
 
 echo "<br /> <br />";
 
