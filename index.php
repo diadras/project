@@ -15,7 +15,7 @@
 			<img src="./img/Logo.png" style="height: 40px" title="Instafood"/>
 		</a>
 		<div class="buttons">
-			<button name="login" onclick="window.location.href='./inlog.php'"> login </button>
+			<button name="login" onclick="window.location.href='./inlog.php'"> login / register </button>
 		</div>
 	</div>
 	  <br><br><br><br>
