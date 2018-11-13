@@ -3,7 +3,6 @@
     <?php
         include './core/database.php';
         include './core/functions.php';
-        include './core/loggedin.php';
     ?>
     <title> Search page </title>
     <link href="./style/style.css" rel="stylesheet" type="text/css" media="all"/>

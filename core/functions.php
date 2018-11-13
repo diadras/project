@@ -1,5 +1,4 @@
 <?php
-
 function randstring($length = 10) {
   $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
   $characterslength = strlen($characters);
@@ -78,5 +77,29 @@ function genpassword(){
 		shuffle($wachtwoord);
 		$wachtwoord = implode("",$wachtwoord);
 		return $wachtwoord;
+}
+function loggedin(){
+  session_start();
+    if (empty($_SESSION['logged']) && $_SERVER['PHP_SELF'] != '/project/index.php' ){
+        header("location: "."./index.php");
+    }
+    elseif(!empty($_SESSION['logged']) && $_SERVER['PHP_SELF'] != '/project/instafood.php'){
+			header("location: " . "./instafood.php");
+		}
+}
+function signout(){
+  session_start();
+   if(session_destroy()) {
+      header("Location:" . "./index.php");
+   }
+}
+function isadmin();
+$username = $_SESSION['logged'];
+$query = "SELECT `username`,`level` FROM `users` WHERE `username` = '$username' AND `level` = 1";
+$result = mysqli_query($db,$query);
+if (mysqli_num_rows($result) == 1){
+  echo("welcome Admin " . $username);
+} else {
+  header("location: " . "./index.php");
 }
 ?>

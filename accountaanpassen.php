@@ -4,7 +4,7 @@
 	<?php
 	  include "./core/functions.php";
     include "./core/database.php";
-    include "./core/loggedin.php";
+    loggedin();
 	  error_reporting(-1);
   	ini_set('display_errors', 'On');
 	?>
@@ -17,7 +17,7 @@
 		  <img src="./img/Logo.png" style=" height: 40px" title="Instafood"/>
     </a>
     <div class="buttons">
-      <button name="logout" onclick="window.location.href='./logout.php'"> logout </button>
+      <button name="logout" onclick="<?php signout(); ?>"> logout </button>
       <button name="post" onclick="window.location.href='./post.php'"> post </button>
     </div>
   </div>

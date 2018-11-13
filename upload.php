@@ -1,6 +1,7 @@
 <?php
 include "./core/database.php";
-include "./core/loggedin.php";
+include "./core/functions.php";
+loggedin();
 // asign data
 $userinfo = $_SESSION['logged'];
 $target_dir = "./data/" . $userinfo . "/";

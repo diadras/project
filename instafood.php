@@ -4,7 +4,7 @@
    <?php
       include "./core/functions.php";
       include "./core/database.php";
-      include "./core/loggedin.php";
+      loggedin();
     ?>
     <link href="./style/style.css" rel="stylesheet" type="text/css" media="all"/>
     <title>Insta-Food</title>
@@ -15,7 +15,7 @@
 		    <img src="./img/Logo.png" style=" height: 40px" title="Instafood"/>
         </a>
         <div class="buttons">
-          <button name="logout"  onclick="window.location.href='./logout.php'"> logout </button>
+          <button name="logout" onclick="<?php signout(); ?>"> logout </button>
           <button name="changeaccount" onclick="window.location.href='./accountaanpassen.php'"> change account </button>
           <button name="post" onclick="window.location.href='./post.php'"> post </button>
           <?php //<button name="search" onclick="window.location.href='./zoekfunctie.php'"> search </button> ?>

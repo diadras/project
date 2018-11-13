@@ -4,10 +4,7 @@
 	<?php
 		include "./core/functions.php";
 		include "./core/database.php";
-		session_start();
-		if(!empty($_SESSION['logged'])){
-			header("location: " . "./instafood.php");
-		}
+		loggedin();
 	?>
 	<link href="./style/style.css" rel="stylesheet" type="text/css" media="all"/>
 	<title>Insta-Food</title>
